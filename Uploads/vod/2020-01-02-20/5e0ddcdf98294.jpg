@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>[chippai]なま LO Re ふらちもの THE ANIMATI</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/html/css/share.css">
+<link rel="stylesheet" type="text/css" href="/html/dplayer/DPlayer.min.css">
+<body>
+	<div class="gaog" id="gaog">
+		<div class="gaog-var">
+			
+		</div>
+	</div>
+	<div id="indexview"><div class="bg"><div class="adcontent"></div></div></div>
+	<div id="orderview">
+		<div class="closeview"></div>
+		<div id="ordertitle">本视频总时长00:18:38
+				<br>您需付费<span id="orderprice">0</span> 元观看完整内容
+		</div>
+		<form action="/order/create" method="POST" id="postform">
+			请选择支付方式
+			<p>支付宝<input type="radio" name="pay" value="1" checked="checked"></p>
+			<p>微信<input type="radio" name="pay" value="2"></p>
+			<input type="hidden" name="shareid" value="AuLOwNPwGZALzOhC">
+			<input type="submit" name="mypay" value="去支付">
+		</form>
+		<div id="orderstatus"></div>
+	</div>
+	<div class="video" id="mvideo"></div>
+	<div style="display:none" name="playtime" value="00:18:38"></div>
+	<div style="display:none" name="sizeview" value="57.58 MB"></div>
+	<div style="display:none"></div>
+	<script src="/html/js/m3u8-parser.min.js"></script>
+	<script type="text/javascript" src="/html/js/jquery-1.11.2.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/html/dplayer/hls.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/html/dplayer/DPlayer.min.js" charset="utf-8"></script>	
+	<script type="text/javascript" src="/html/ckplayerx/ckplayer.js" charset="utf-8"></script>	
+	<script type="text/javascript" src="/html/js/mplayer.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/html/js/share.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" src="/html/js/crypto/crypto-js.js" charset="utf-8"></script>	
+		
+	
+	<script type="text/javascript">
+		var box = "mvideo";
+		
+		var content = "U2FsdGVkX19EsNyWPhZCcDC1gDVSsgndyAFart/UKjrDPbrflndkuOwWPZXeSP2nFtDd95dhsSwqr+lmEYOkyn4v5fJxY4AS3I7+//Y3DFd216YFdjYGQWS/y/N8EKESGNPFf+D24hCwRH78w1l/2hPjHnHfd8Q8GJngCecaioT1Cob7Kk3NZfcozh7wszjm8Ol9K8Oeizk1UMjXmDCJgGEETi6mrrvlRuNwSu5aJxGt25aBm53q503zdpvIqS2i//nBTERVmieATze45VCl1MHlFjUIZZLqgq9KQ1BdZkY6HW3RBREcsLOWb2gQ9Gf6Bis0XjMBRJvxSJXxdhePx8SKRqyToSlm72/VyXQpCah6Ln/F9ojOv1iXN5ck0JuGEtUdRQPvgKjk0XOJthiRBYjVYSKvDI5GxZjZdT2oduK2O94wekvdrDJ1UbGHTpaxjaZgmCvDTfDTt9suYnN63yf+fb2/l2TF699P0QJG9uprnHOSV0m7BuOfaWKXK7L96Gsw80fPt+NLnxvx9gXgNj9lA6i70fTtMGc5lqPDgPqbGoMHieGia+AK98F+lQOAiyVp7vUDggrSbB0b4RWy+S5AozKel6ovVVqbpDZpg4APC3V1RidNW1K2Ue98K+2IzQwzniGpM1FYz0bRSA+7MOO1mEiBZE6cfz7ZY9Fr/xDTeRXg5FsS9t8ew74yoPwtmzSZyabBPRka1AZqK2OBJcjP47gKiX+q3W6L4ZMpRu7lvUrjmwrGh6OPiRrMcfTaSzzQSAzqs793/NZNKOuLs0CCUO7LHndmKzZrSpOSi97kWjJPp4U8dbx3MAfoZNOdYciZkSi5hmCyHw0a+abInrwW7vnHPxRHaUdigvhbbGT4uBCObP7kvpxHKSmSw8M4kM+6wcQ3F6A7cc30CL63xA==";
+		var bytes =  CryptoJS.AES.decrypt(content, 'ppvod');
+		var originalText = bytes.toString(CryptoJS.enc.Utf8);
+		eval(originalText);
+		
+	</script>
+</body>
+</html>
