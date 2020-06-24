@@ -106,7 +106,7 @@ var feifei = {
 				type: "text/css",
 				href: cms.root+"Public/jquery.flickity/2.1.1/flickity.min.css"
 			}).appendTo("head");
-			$.getScript(cms.root+"Public/jquery.flickity/2.1.1/flickity.pkgd.min.js", function(){
+			$.getScript("https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@latest/a/jquery.flickity/2.1.1/flickity.pkgd.min.js", function(){
 				$(".ff-gallery").each(function(i){
 					$index = $(this).find('.gallery-active').index()*1;
 					if($index > 3){
@@ -238,7 +238,7 @@ var feifei = {
 		$.ajaxSetup({
 			cache: true
 		});
-		$.getScript(cms.root+"Public/jquery.lazyload/1.9.7/jquery.lazyload.min.js", function(response, status) {
+		$.getScript("https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@latest/a/jquery.lazyload/1.9.7/jquery.lazyload.min.js", function(response, status) {
 			$("img.ff-img").lazyload({
 				placeholder : cms.root+"Public/images/no.jpg",
 				effect : "fadeIn",
@@ -341,7 +341,7 @@ var feifei = {
 			$.ajaxSetup({
 				cache: true
 			});
-			$.getScript(cms.root+"Public/jquery.devbridge-autocomplete/1.4.7/jquery.autocomplete.min.js", function(response, status) {
+			$.getScript("https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@latest/a/jquery.devbridge-autocomplete/1.4.7/jquery.autocomplete.min.js", function(response, status) {
 				$('.ff-wd').autocomplete({
 					serviceUrl : cms.root+'index.php?g=home&m=search&a=api&sid='+$sid,
 					params: {'limit': $limit},
@@ -732,7 +732,7 @@ var feifei = {
 'playurl': {//播放地址
 	'tongji': function(){
 		if($("#cms_player").length){
-			$.getScript("//cdn.feifeicms.co/tongji/4.2/?"+~(-new Date()/36e5));
+			//$.getScript("//cdn.feifeicms.co/tongji/4.2/?"+~(-new Date()/36e5));
 		}
 	},
 	'active':function(){
@@ -1178,7 +1178,7 @@ $(document).ready(function(){
 		feifei.mobile.goback();
 		feifei.mobile.flickity();
 	}
-	feifei.user.load();
+	//feifei.user.load();
 	feifei.cms.nav();//
 	feifei.cms.collapse();
 	feifei.cms.pushBaidu();
@@ -1188,7 +1188,7 @@ $(document).ready(function(){
 	feifei.search.submit();//
 	feifei.search.keydown();//
 	feifei.image.slide();
-	feifei.image.qrcode();//
+	//feifei.image.qrcode();//
 	//feifei.playurl.tongji();
 	feifei.playurl.more();
 	feifei.playurl.error();
