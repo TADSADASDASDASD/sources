@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>Dplayer</title>
+<<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- IE内核 强制使用最新的引擎渲染网页 -->
+<meta name="renderer" content="webkit">  <!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0 ,maximum-scale=1.0, user-scalable=no"><!-- 手机H5兼容模式 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/p2p-dplayer@latest/dist/DPlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@0.6.2/build/p2p-media-loader-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@0.6.2/build/p2p-media-loader-hlsjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/dplayer@latest"></script>
+    
+<style type="text/css">
+body,html{width:100%;height:100%;background:#000;padding:0;margin:0;overflow-x:hidden;overflow-y:hidden}
+*{margin:0;border:0;padding:0;text-decoration:none}
+#stats{position:fixed;top:5px;left:8px;font-size:12px;color:#fdfdfd;text-shadow:1px 1px 1px #000, 1px 1px 1px #000}
+#dplayer{position:inherit}
+</style>
+</head>
+<body style="background:#000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu=window.event.returnValue=false>
+
+<div id="dplayer"></div>
+<div id="stats"></div>
+    
+
+<script>
+      function getQueryVariable(variable)
+    {
+           var query = window.location.search.substring(1);
+           var vars = query.split("&");
+           for (var i=0;i<vars.length;i++) {
+                   var pair = vars[i].split("=");
+                   if(pair[0] == variable){return pair[1];}
+           }
+           return(false);
+    }
+	var webdata = {
+		set:function(key,val){
+			window.sessionStorage.setItem(key,val);
+		},
+		get:function(key){
+			return window.sessionStorage.getItem(key);
+		},
+		del:function(key){
+			window.sessionStorage.removeItem(key);
+		},
+		clear:function(key){
+			window.sessionStorage.clear();
+		}
+	};
+
+	var downloadTotals = { http: 0, p2p: 0 ,uploadTotal:0 };
+	var m3u8url =  getQueryVariable('url')
+    var dp = new DPlayer({
+        autoplay: true,
+        container: document.getElementById('dplayer'),
+      volume: 1.0,
+      preload: 'auto',
+      screenshot: true,
+      theme: '#28FF28',
+        video: {
+            
+            url: m3u8url,
+            type: 'customHls',
+            pic: '/dp/loading.gif',
+            customType: {
+                'customHls': function (video, player) {
+					const config = {
+  
+                          loader:{
+                            trackerAnnounce: [
+                              "wss://api.jcswhg.com:8433"
+                            ],
+                          }
+                        };
+					const engine = new p2pml.hlsjs.Engine(config);
+					const hls = new Hls({
+                                liveSyncDurationCount: 12, // To have at least 7 segments in queue
+                                loader: engine.createLoaderClass(),
+                                
+                            });
+                            
+
+   
+                    engine.on(p2pml.core.Events.PieceBytesDownloaded, function(method, size) {
+                        
+                        downloadTotals[method] += size/1048576;
+
+                        updateStats2()
+                     });
+                     
+                     engine.on(p2pml.core.Events.PieceBytesUploaded, function(method, size) {
+                        downloadTotals['uploadTotal'] += size/1048576;
+  
+                        updateStats2()
+                     });
+
+					p2pml.hlsjs.initHlsJsPlayer(hls);
+                    hls.loadSource(video.src);
+                    hls.attachMedia(video);
+                },
+                'updateStats':updateStats()
+            }
+            
+        }
+    });
+	dp.seek(webdata.get('pay'+m3u8url));
+	setInterval(function(){
+		webdata.set('pay'+m3u8url,dp.video.currentTime);
+	},1000);
+    dp.on('ended', function () {
+    window.parent.postMessage('tcwlnext','*');
+  });
+    function updateStats() {
+        var text = '高峰期会有卡顿，请切换片源再试。⚠⚠不要相信视频广告️';
+        document.getElementById('stats').innerText = text
+    }
+    function updateStats2() {
+        var text = 'P2P已开启 共享' + downloadTotals.uploadTotal.toFixed(2) + 'MB' + ' 已加速' + downloadTotals.p2p.toFixed(2)
+            + 'MB' + ' 此片有 ' + 0 + ' 位影迷正在观看';
+        //document.getElementById('stats').innerText = text
+        console.log(downloadTotals)
+    }
+</script>
+<script>
+function adCheck(){
+  var myDate = new Date();
+  var aaa=myDate.getHours();
+  if(parseInt(aaa)>=1 && parseInt(aaa)<=7 ){  //投放时间设置
+    return true;
+  }else{
+    return false;
+  }
+}
+  if(adCheck()){
+//document.writeln('<script type="text/javascript" charset="UTF-8" async src="https://k.xhrxb.com/x.php?pid=1022"><\/script>');
+  }
+
+  </script>
+</body>
+</html>
