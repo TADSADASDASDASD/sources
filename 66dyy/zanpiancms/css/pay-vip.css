@@ -1,0 +1,7 @@
+@charset "utf-8";
+.player-ispay p{padding-top:10px;}
+.player-ispay .weixin{margin:auto}
+.player-ispay .weixin .weixin-txt{ padding:10px 0px;}
+.player-ispay .weixin img{display: inline-block; vertical-align: middle; width:100px; height:100px;}
+.player-ispay .weixin .weixin-play{padding:10px 0px;}
+.player-ispay .weixin input{color: #555;background-color: #fff;background-image: none;border: 1px solid #ccc;border-radius: 4px;padding: 7px 5px; margin-right:10px;}
