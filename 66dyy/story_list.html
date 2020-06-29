@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="show['list_title']"}{$show['list_title']}{else/}最新{$show['list_name']}-{:getlistname($show['list_pid'],'list_name')}{$show['list_name']} {gt name="param['p']" value="1"}第{$param['p']}页{/gt} - {$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="show['list_keywords']"}{$show['list_keywords']}{else/}最新剧情,电视剧分集剧情,剧情介绍{/notempty}">
+<meta name="description" content="{notempty name="show['list_description']"}{$show['list_description']}{else/}最新剧情栏目包含的电视剧剧情,剧情分集介绍等希望你能喜欢！{/notempty}">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<div class="container">
+  <div class="row">
+    <div class="layout-box clearfix">
+    <div class="box-title-nav">
+    <ul class="clearfix">
+    <li><a class="text-overflow" href="{:zanpian_show_url($show['list_pid'])}">全部{:getlistname($show['list_pid'],'list_name')}</a></li>
+   {list pid="'.$show['list_pid'].'" order="list asc" limit="6"}
+    <li><a class="text-overflow {eq name="zanpian.list_id" value="$show['list_id']"}active{/eq}" href="{:zanpian_show_url($zanpian)}">{$zanpian.list_name}</a></li>
+{/list}
+    </ul>
+    </div>    
+    </div>
+{story var="story_list" cid="'.$show['list_id'].'" limit="39" page="true" order="story_addtime desc"}{/story} 
+<div class="col-md-9 col-sm-12 box-main-content">
+  <div class="layout-box clearfix">
+    <div class="box-title">
+      <h3 class="m-0">{$show.list_name}{gt name="param['p']" value="1"}第{$param['p']}页{/gt}</h3>
+<div class="more pull-right">共<span class="text-color">“{$story_list->total()}”</span>篇内容,当前第<span class="text-color">“{$story_list->currentPage()}”</span>页</span></div>
+    </div>
+    <div class="col-md-3 col-sm-4 col-xs-12 p-0 hotlist">
+     {foreach name="story_list" id="zanpian" offset="0" length='4' key="i"} 
+     <li class="col-md-12 col-sm-12 col-xs-4 {gt name="i" value="2"} hidden-xs{/gt}">
+     <a class="video-pic loading" data-original="{$zanpian.vod_pic|zanpian_img_url}" href="{eq name="zanpian.story_isend" value="1"}{:zanpian_read_url('home/story/read',$zanpian)}{else/}{:zanpian_read_url('home/part/read',$zanpian)}{/eq}" title="{$zanpian.vod_name}{eq name="zanpian.story_isend" value="1"}全集剧情{else /}{$zanpian.story_name}剧情{/eq}"><span class="note text-bg-r">{eq name="zanpian.story_isend" value="1"}1-{$zanpian.story_continu}全集剧情{else /}{$zanpian.story_name}分集剧情{/eq}</span> <span class="top"><em>{$i+1}</em></span></a>
+      <div class="title">
+        <h5 class="text-overflow"><a href="{eq name="zanpian.story_isend" value="1"}{:zanpian_read_url('home/story/read',$zanpian)}{else/}{:zanpian_read_url('home/part/read',$zanpian)}{/eq}" title="{$zanpian.vod_name}剧情">{$zanpian.vod_name}剧情</a></h5>
+      </div>
+      <div class="subtitle text-muted text-overflow hidden-xs">{$zanpian.vod_actor}</div>
+     </li>
+     {/foreach}
+    </div>
+    <div class="col-md-9 col-sm-4 col-xs-12 pg-0">
+    <div class="box-video-text-list clearfix">
+      <ul>
+            {foreach name="list_page" id="zanpian"  offset="5" key="i"}
+              <li class="list1 text-overflow">
+              <em class="key">{$i}.</em>
+              {eq name="zanpian.story_isend" value="1"}
+              <a href="{:zanpian_read_url('home/story/read',$zanpian)}" title="{$zanpian.vod_name}全集剧情分集剧情介绍（1-{$zanpian.story_continu}集）大结局"><span class="time pull-right hidden-xs">{$zanpian.story_addtime|date='Y-m-d H:i:s',###|time_today='color','#f90'}</span>{$zanpian.vod_name}分集剧情介绍（1-{$zanpian.story_continu}集）大结局</a>{else/}
+              <a href="{:zanpian_read_url('home/part/read',$zanpian)}" title="{$zanpian.vod_name}{$zanpian.story_name}分集剧情"><span class="time pull-right hidden-xs">{$zanpian.story_addtime|date='Y-m-d H:i:s',###|time_today='color','#f90'}</span>{$zanpian.vod_name}分集剧情介绍{$zanpian.story_name}剧情</a>
+              {/eq}
+              </li>
+           {/foreach}
+           
+            </ul>
+    </div>
+    </div>
+
+<div class="box-page clearfix m-0" id="long-page"><ul>{$story_list->render()}</ul></div>   
+  </div>
+</div>
+<div class="col-md-3 col-sm-12 box-main-side hidden-xs">
+  <div class="layout-box clearfix">
+    <div class="box-title " style="padding:0px 0px 10px 0">
+    <h3 class="m-0">最新{:getlistname($show['list_pid'],'list_name')}</h3>
+    </div>        
+<div class="box-video-text-list">
+      <ul class="clearfix mg-0">
+       {story limit="8"  order='story_addtime desc' key="i"}
+<li class="list p-0"><span class="pull-right">{$zanpian.story_name}{eq name="zanpian.story_isend" value="1"}全集剧情{else /}剧情{/eq}</span><a href="{eq name="zanpian.story_isend" value="1"}{:zanpian_read_url('home/story/read',$zanpian)}{else/}{:zanpian_read_url('home/story/read',$zanpian,$zanpian)}{/eq}" title="{$zanpian.vod_name}{$zanpian.story_name}{eq name="zanpian.story_isend" value="1"}全集剧情{else /}剧情{/eq}"><em class="num {lt name="i" value="3"}active{/lt}">{$i}</em>{$zanpian.vod_name|msubstr=0,8,'..'}</a></li>
+        {/story}
+      </ul>
+    </div>
+  </div>
+{include file="vod_detail_right" /} 
+</div>
+  </div>
+</div>
+{include file="footer" /}
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>播放器{$info.play_status}</title>
+<style>body{background:#000;overflow-x:hidden;overflow-y:hidden; height:100%}</style>
+</head>
+<body>
+{gt name="info.vod_play_trysee" value="0"}{$info.vod_player}{else/}{eq name="info.play_status" value="200"}{$info.vod_player}{else/}{/eq}{/gt}
+<script>
+window.parent.zanpian.player.vip_callback('{$info.vod_id}','{$info.play_sid}','{$info.play_pid}','{$info.play_status}','{$info.vod_play_trysee}',{$info.play_tips|json_encode});
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{notempty name="info['actor_id']"}
+<div class="layout-box clearfix details-story">
+    <div class="box-title">
+    <h3 class="m-0">{$vod_name}角色剧照</h3>
+    <div class="more pull-right"><a href="{:zanpian_read_url('home/actor/read',$info)}" class="text-muted" title="更多" target="_blank">更多 <i class="icon iconfont">&#xe65e;</i></a></div>
+    </div>
+    <div class="swiper-container vod-swiper-6">
+    <ul class="swiper-wrapper">
+     {role vid="'.$info['vod_id'].'" limit="6" order="role_oid asc"}
+    <li class="swiper-slide news-box p-0"> 
+    <a href="{:zanpian_read_url('home/role/read',$zanpian)}" class="video-pic swiper-lazy" title="{$zanpian.role_name}" data-background="{$zanpian.role_pic|zanpian_img_url}" target="_blank"><div class="swiper-lazy-preloader"></div></a>
+            <div class="title"><h5 class="text-center text-overflow"><a href="{:zanpian_read_url('home/role/read',$zanpian)}" title="{$zanpian.role_name}">{$zanpian.role_name}</a></h5></div>
+            <div class="text-center subtitle text-muted text-overflow">&nbsp;{$zanpian.role_star|default='未知'}&nbsp;饰</div>
+    </li>
+    {/role}
+    </ul> 
+    </div>   
+</div>   
+{/notempty}

@@ -1,0 +1,16 @@
+{php}
+if(!empty($vod_actor)){
+$actor=str_replace(array('/','|',' ','，','、'),',',$vod_actor);
+$tab_actor = zanpian_mysql_vod('actor:'.$actor.';limit:10;field:vod_id,vod_name,vod_cid,vod_letters,vod_title,vod_gold,vod_pic,vod_gold,vod_total,vod_continu,vod_actor,vod_mcid,vod_addtime;order:vod_id desc');}
+if(!$tab_actor || count($tab_actor) == 1){ $tab_actor = zanpian_mysql_vod('limit:10;field:vod_id,vod_name,vod_cid,vod_letters,vod_title,vod_gold,vod_pic,vod_gold,vod_total,vod_continu,vod_actor,vod_mcid,vod_addtime;cahce_name:default;cahce_time:86400;order:vod_id desc'); }
+{/php}
+<div class="layout-box clearfix">
+  <div class="box-title">
+    <h3 class="m-0">{$info['vod_name']}介绍</h3>
+  </div>
+  <div class="swiper-container vod-swiper-5">
+    <ul class="swiper-wrapper">
+    	<span class="details-content-default">{$site_name}为您提供{$info['vod_name']}免费高清在线观看，{$info['vod_name']}又名：{$info['vod_aliases']}<br>{$info['vod_name']}是一部{$info['vod_year']}上映的{$info['vod_area']}{:getlistname($show['list_pid'],'list_name')}，是由导演{$info['vod_director']|get_star_url}拍摄制作，主要演员有{$info['vod_actor']|get_star_url}等人。<br>剧情简介：{$info['vod_content']}<br>版权声明：{$site_name}并不提供{$info['vod_name']}的资源存储以及资源制作，本站仅提供{$info['vod_name']}免费高清在线观看，仅供个人用户及网吧测试网络所用，版权归属{$info['vod_name']}出品公司所有。<br>{$info['vod_name']}免费高清在线观看以及片中导演以及主演信息均来自互联网搜集。<br>如遇不能播放请尝试切换线路或者给我们留言，如果您喜欢我们请动动手指分享给您的朋友，点击几下广告多多支持小站。您的支持会让我们《{$site_name}》走的更远！</span>
+    </ul>
+  </div>
+</div>

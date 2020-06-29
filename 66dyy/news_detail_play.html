@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="info['news_title']"}{$info['news_title']}{else/}{$info['news_name']} {gt name="param['p']" value="1"}第{$param['p']}页{/gt} - {$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="info['news_keywords']"}{$info['news_keywords']}{else/}{$info['news_name']}{/notempty}">
+<meta name="description" content="{notempty name="info['news_description']"}{$info['news_description']}{else/}{$info['news_remark']}{/notempty}">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<!--盒子开始--> 
+<div class="container">
+  <div class="row">
+   <div class="layout-box clearfix p-0 m-0">
+   <div class="col-md-9 col-sm-12 col-xs-12 player_left">
+   <div class="player_title"><h1>{$info['news_name']}</h1></div>
+   <div class="embed-responsive embed-responsive-16by9" id="zanpiancms_player">{$info['news_player']}</div>
+   </div>
+        <div class="col-md-3 col-sm-12 box-main-side hidden-sm hidden-xs hidden-sm player_right">
+        <div class="box-switch-tabs" id="myTab">
+        <ul class="nav nav-tabs ajax-nav-tabs">
+          <li class="active"><a href="#con_news_1" data-toggle="tab">相关内容</a></li>
+          <li ><a href="#con_news_2" data-toggle="tab">今日热点</a></li>
+        </ul>
+    </div>
+      <ul class="tab clearfix mg-0 p-0 fade in active" id="con_news_1">
+   {topic tid="'.$info['news_id'].'" tsid="2" sid="2" id="zanpian" limit="5"} {/topic}
+   {empty name="__LIST__"}
+   {news cid="'.$show['list_id'].'" limit="5" order="news_addtime desc"}{/news}
+   {/empty}
+   {foreach name="__LIST__"  id="zanpian"}
+  <li class="news-box-txt">
+         <div class="col-md-6 col-sm-12 p-0"><a class="video-pic loading" href="{:zanpian_read_url('home/news/read',$zanpian)}" title="{$zanpian.news_name}" data-original="{$zanpian.news_pic|zanpian_img_url}" style="padding-top:62.5%;"></a></div>
+         <div class="col-md-6 mt-0 clearfix">
+         <h3><a href="{:zanpian_read_url('home/news/read',$zanpian)}" title="{$zanpian.news_name}">{$zanpian.news_name|msubstr=0,25,'...'}</a></h3>
+         <div class="time hidden-md">
+         {$zanpian.news_addtime|date='Y-m-d H:i:s',###}
+         </div>
+         </div>
+         </li>
+         {/foreach}
+
+      </ul>
+      
+      <ul class="tab clearfix mg-0 p-0  fade" id="con_news_2">
+  {news cid="'.$show['list_id'].'" limit="5" order="news_hits desc"}
+  <li class="news-box-txt">
+         <div class="col-md-6 col-sm-12 p-0"><a class="video-pic loading" href="{:zanpian_read_url('home/news/read',$zanpian)}" title="{$zanpian.news_name}" style="background: url({$zanpian.news_pic|zanpian_img_url})  no-repeat;padding-top:62.5%;background-size:cover;"></a></div>
+         <div class="col-md-6 mt-0 clearfix">
+         <h3><a href="{:zanpian_read_url('home/news/read',$zanpian)}" title="{$zanpian.news_name}">{$zanpian.news_name|msubstr=0,25,'...'}</a></h3>
+         <div class="time hidden-md">
+         {$zanpian.news_addtime|date='Y-m-d H:i:s',###}
+         </div>
+         </div>
+         </li>
+         {/news}
+      </ul>
+            
+   </div>   
+   </div>
+  
+  
+  <!--左侧板块开始--> 
+  <div class="col-md-9 col-sm-12 box-main-content" style="position:static">
+  <div class="layout-box clearfix">
+  <div class="news_details">
+  <div class="news_top text-center text-overflow"><span>时间：{$info['news_addtime']|date='Y-m-d H:i:s',###}</span><span>播放：<span id="detail-hits" data-type="news_hits">{$info['news_hits']}</span>次</span> <span class="hidden-xs">来源：<a href="{$site_url}" target="_blank">{$site_name}</a></span></div>
+  </div> 
+  {include file="news_detail_info" /} 
+  <div class="details-content text-justify">
+  <p>{$info['news_content']|zanpian_news_img_array|zanpian_content_replace=###,$news_vod[0],1}</p>
+</div>
+<div class="clearfix"></div>
+<div class="details-page clearfix">
+<ul class="clearfix">
+{php}$news_next=detail_array('news','next',$info['news_id'],$info['news_cid'],'news_id,news_name,news_cid,news_pic,news_addtime,news_remark,news_jumpurl');{/php}
+{php}$news_prev=detail_array('news','prev',$info['news_id'],$info['news_cid'],'news_id,news_name,news_cid,news_pic,news_addtime,news_remark,news_jumpurl');{/php}
+{notempty name="news_prev"}
+<li class="col-md-6"><a  class="text-overflow" href="{:zanpian_read_url('home/news/read',$news_prev)}" target="_self">上一篇：{$news_prev['news_name']}</a></li>
+{else /}
+<li class="col-md-6"><a target="_self">没有了</a></li>
+{/notempty}
+{notempty name="news_next"}
+<li class="col-md-6"><a class="text-overflow" href="{:zanpian_read_url('home/news/read',$news_next)}" target="_self">下一篇：{$news_next['news_name']}</a></li>
+{else /}
+<li class="col-md-6"><a  target="_self">没有了</a></li>
+{/notempty}
+</ul>
+  </div> 
+    </div>  
+   <div class="layout-box clearfix"> 
+    <div class="box-title">
+    <h3 class="m-0">最新{$show['list_name']}</h3>
+    </div>
+<div class="clearfix">
+          <ul class="clearfix">
+          {news cid="'.$show['list_id'].'" limit="4" key="i" order="news_addtime desc"}
+          <li class="col-md-3 col-sm-4 col-xs-6 {gt name="i" value="6"}hidden-sm hidden-xs{/gt}"><a class="video-pic loading text-overflow" href="{:zanpian_read_url('home/news/read',$zanpian)}" title="{$zanpian.news_name}" data-original="{$zanpian.news_pic|zanpian_img_url}" style="padding-top:62.5%;"><span class="note text-bg-c">{$zanpian.news_name|msubstr=0,10,'...'}</span></a></li>
+          {/news}
+         </ul>
+         </div>   
+          </div>                   
+<div class="layout-box clearfix">        
+    <div class="box-title">
+    <h3 class="m-0">最新资讯</h3>
+    </div>
+    <div class="swiper-container news-switch-3">
+   <ul class="swiper-wrapper clearfix">
+{news limit="12" order="news_addtime desc"}
+<li class="swiper-slide"><a class="video-pic swiper-lazy" href="{:zanpian_read_url('home/news/read',$zanpian)}" title="{$zanpian.news_name}" data-background="{$zanpian.news_pic|zanpian_img_url}" style="padding-top:62.5%;background-position:50% 50%;background-size:cover;"><span class="note text-bg-c">{$zanpian.news_name|msubstr=0,15,'...'}</span><div class="swiper-lazy-preloader"></div></a></li>
+{/news}
+         </ul>
+     <div class="swiper-button-next hidden-xs"><i class="icon iconfont icon-right"></i></div>
+     <div class="swiper-button-prev hidden-xs"><i class="icon iconfont icon-left"></i></div>
+   </div>
+</div>           
+ <!--视频评论开始-->     
+ {include file="vod_detail_cm" /}
+  <!--视频评论结束-->        
+  </div>
+ <!--左侧板块结束--> 
+ 
+ <!--右侧板块结束--> 
+  <div class="col-md-3 col-sm-12 box-main-side hidden-sm hidden-xs">
+{include file="vod_detail_right" /} 
+</div> 
+
+ <!--右侧板块结束-->  
+</div>
+</div>
+<!--盒子结束--> 
+{:gethits($info['news_id'],$show['list_sid'])}
+{include file="footer" /}
+</body>
+</html>

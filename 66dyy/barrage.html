@@ -1,0 +1,19 @@
+{php}$barrage=get_addon_config('barrage');{/php}
+{notempty name="barrage.barrage_status"}
+<div class="play_barrage hidden-xs" id="barrage" data-id="{$info.vod_id}" data-sid="{$show['list_sid']}">
+<div class="col-md-10 col-sm-10 col-xs-8 barrage_l">
+<form id="barrage-form" method="post" role="form" onsubmit="return false;">
+<input type="hidden" id="comm_sid" name="comm_sid" value="{$show['list_sid']}">
+{eq name="show['list_sid']" value="1"}
+<input type="hidden" id="comm_vid" name="comm_vid" value="{$info.vod_id}">
+{/eq}         
+<input type="text" class="input col-md-12 col-sm-12 col-xs-12" id="comm_txt" name="comm_txt" placeholder="请在这里输入弹幕内容">
+  {notempty name="GLOBALS['config']['user']['sys']['user_code']"}
+ <span id="validate-zanpian" style="position:absolute;right:145px;"><img class="validate-img" style="height:38px" src="{:url('home/verify/index',array('t'=>time()))}"></span>
+<input class="input" style="width:80px; padding:0px;text-align:center;position:absolute;right:60px;" data="validate" name="validate" type="text" placeholder="验证码">
+{/notempty}
+<button type="button" class="btn btn-sm" style="position:absolute;right:0px;padding: 10px 0px; width:60px" id="barrage-submit">提交</button>
+</form>
+</div>
+<div class="col-md-2 col-sm-2 col-xs-4 barrage_r"><div class="barrage_switch on"><div class="barrage_m" id="slider"></div><span class="danmu">弹幕</span></div></div></div>
+{/notempty}

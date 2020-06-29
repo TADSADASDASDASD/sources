@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{$month|date='Y年m月',###}{$up_title}{$show.list_name}_{$month|date='m月',###}最新{$show.list_name}-{$site_name}</title>
+<meta name="keywords" content="{$month|date='Y年m月',###}{$up_title}的{$show.list_name},{$month|date='m月',###}月最新{$show.list_name}">
+<meta name="description" content="{$month|date='Y年m月',###}有哪些{$show.list_name}{$up_title}、{$month|date='m月',###}月最新{$show.list_name}由{$sitename|msubstr=0,2}网为收集希望你能喜欢。">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<div class="container">
+  <div class="row"> 
+  {notempty name="param['type']"}
+{eq name="param['type']" value="up"}
+{vod var="volist" cid="'.$show['list_id'].'" filmtime="2" limit="10" page="true" order="vod_filmtime asc"}{/vod} 
+{/eq}
+{eq name="param['type']" value="ls"}
+{vod var="volist" cid="'.$show['list_id'].'" filmtime="1" limit="10" page="true" order="vod_filmtime desc"}{/vod} 
+{/eq}
+{else/}
+{vod var="volist" cid="'.$show['list_id'].'" filmtime="'.$firstday.'|'.$lastday.'" limit="10" page="true" order="vod_filmtime asc"}{/vod} 
+{/notempty}
+    <div class="layout-box clearfix">
+    <div class="box-title-nav">
+    <ul class="clearfix">
+    
+    <li><a href="{:zanpian_url('home/up/show',array('id'=>$show.list_id,'dir'=>$show.list_dir,'type'=>'ls'))}" title="{$month|date='Y年m月',###}{$up_title}" target="_self" {eq name="param['type']" value="ls"} class='active' {/eq}>正在热映</a></li>
+    <li><a href="{:zanpian_url('home/up/show',array('id'=>$show.list_id,'dir'=>$show.list_dir,'type'=>'up'))}" title="{$month|date='Y年m月',###}{$up_title}" target="_self" {eq name="param['type']" value="up"} class='active' {/eq}>即将上映</a></li>
+    {volist name="lastdate" id="zanpian"}
+<li><a href="{:zanpian_url('home/up/show',array('id'=>$show.list_id,'dir'=>$show.list_dir,'month'=>date('Ym',$zanpian)))}" title="{$zanpian|date='Y年m月',###}{$up_title}" target="_self">{$zanpian|date='Y年m月',###}<span class="hidden-sm hidden-xs">{$up_title}</span></a></li>
+{/volist}
+<li><a href="{:zanpian_url('home/up/show',array('id'=>$show.list_id,'dir'=>$show.list_dir,'month'=>date('Ym',$month)))}" title="{$month|date='Y年m月',###{$up_title}" target="_self" {empty name="param.type"} class='active' {/empty}>{$month|date='Y年m月',###}<span class="hidden-sm hidden-xs">{$up_title}</span></a></li>
+
+{volist name="update" id="zanpian"}
+<li><a href="{:zanpian_url('home/up/show',array('id'=>$show.list_id,'dir'=>$show.list_dir,'month'=>date('Ym',$zanpian)))}" title="{$zanpian|date='Y年m月',###}{$up_title}" target="_self">{$zanpian|date='Y年m月',###}<span class="hidden-sm hidden-xs">{$up_title}</span></a></li>
+{/volist}
+    </ul>
+    </div>    
+    </div> 
+
+ 
+   <div class="col-md-9 col-sm-12 box-main-content"> 
+      <div class="layout-box clearfix">
+          <div class="box-title">
+      <h3 class="m-0">{$month|date='Y年m月',###}{$up_title}{$show.list_name}</h3>
+<div class="more pull-right" id="count">共找到<span class="text-color">“{$volist->total()}”</span>个相关视频</div>
+    </div>
+    <div class="clearfix" id="content">
+{volist name="volist" id="zanpian" key="i"}
+<div class="details-info-min col-md-12 col-sm-12 col-xs-12 clearfix news-box-txt p-0"> 
+<div class="col-md-3 col-sm-4 col-xs-3 news-box-txt-l clearfix"><a class="video-pic loading" href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian['vod_name']}" data-original="{$zanpian.vod_pic|zanpian_img_url}" style="padding-top:150%;"><span class="note text-bg-c">{$zanpian['vod_name']}</span></a></div>
+<div class="col-md-9 col-sm-8 col-xs-9 clearfix pb-0">
+<div class="details-info p-0">
+<ul class="info clearfix">
+ <li class="col-md-6 col-sm-6 col-xs-12"><a href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian['vod_name']}">{$zanpian['vod_name']}</a><span class="hidden-sm hidden-md hidden-lg">{$zanpian['vod_title']}</span></li>
+ <li class="col-md-6 text hidden-xs">{notempty name="zanpian['vod_aliases']"}<span>别名：</span>{$zanpian['vod_aliases']}{/notempty}</li>  
+ <li class="col-md-12 col-sm-12 col-xs-12 hidden-xs"><span>状态：</span>{$zanpian['vod_title']}</li>
+ <li class="col-md-6 col-sm-6 col-xs-12 text"><span class="hidden-xs">类型：</span>{$zanpian['vod_mcid']|get_mcat_url=$zanpian['vod_cid']}</li>
+  <li class="col-md-6 col-sm-6 col-xs-12 text"><span class="hidden-xs">上映时间：</span>{$zanpian.vod_filmtime|date='Y年m月d日',###}上映</li>
+ <li class="col-md-12 col-sm-12 col-xs-12 text"><span class="hidden-xs">{eq name="zanpian['vod_cid']" value="$tpl_id[4]"}主持：{else /}主演：{/eq}</span>{$zanpian['vod_actor']|get_star_url}</li>  
+  <li class="col-md-6 col-sm-6 col-xs-12 text hidden-xs"><span>导演：</span>{$zanpian['vod_director']|get_star_url}</li>
+  <li class="col-md-6 col-sm-12 col-xs-4 text hidden-xs"><span>国家/地区：</span>{$zanpian['vod_area']|default='其他'}</li>
+<li class="col-md-6 col-sm-6 col-xs-12  text hidden-xs">
+{if condition="(getlistpid($zanpian['vod_cid']) eq $tpl_id[2]) OR ($zanpian['vod_cid'] eq $tpl_id[3])"}
+<span>集数：</span>
+{notempty name="zanpian['vod_total']"}共{php}echo preg_replace('/\D/s', '', $zanpian['vod_total']);{/php}集&nbsp;&nbsp;|&nbsp;&nbsp;{/notempty}每集{$zanpian['vod_length']|default='45'}分钟
+{elseif condition="(getlistpid($zanpian['vod_cid']) eq $tpl_id[1]) OR ($zanpian['vod_cid'] eq $tpl_id[5])" /}
+<span>时长：</span>{$zanpian['vod_length']|default='120'}分钟
+{elseif condition="$zanpian['vod_cid'] eq $tpl_id[4]" /}
+<span>时长：</span>每期{$zanpian['vod_length']|default='90'}分钟
+{/if}
+</li>
+  <li class="col-md-6 col-sm-12 col-xs-6 text hidden-xs"><span>语言/字幕：</span>{$zanpian['vod_language']|default='国语对白 中文字幕'}</li>
+  <li class="col-md-6 col-sm-6 col-xs-6 text hidden-xs">
+{if condition="(getlistpid($zanpian['vod_cid']) eq $tpl_id[2]) OR ($zanpian['vod_cid'] eq $tpl_id[3]) OR ($zanpian['vod_cid'] eq $tpl_id[4])"}
+{notempty name="zanpian['vod_filmtime']"}<span>首播时间：</span>{$zanpian['vod_filmtime']|date='Y-m-d',###}{else /}<span>年代：</span>{$zanpian['vod_year']|default='未录入'}{/notempty}
+{elseif condition="(getlistpid($zanpian['vod_cid']) eq $tpl_id[1]) OR ($zanpian['vod_cid'] eq $tpl_id[5])" /}
+{notempty name="zanpian['vod_filmtime']"}<span>上映时间：</span>{$zanpian['vod_filmtime']|date='Y-m-d',###}{else /}<span>年代：</span>{$zanpian['vod_year']|default='未录入'}{/notempty}
+{/if}
+</li>
+{notempty name="zanpian['vod_diantai']"}
+<li class="col-md-6 col-sm-12 col-xs-6 text hidden-xs"><span>首播/卫视：</span>{$zanpian['vod_diantai']|get_tv_url}</li>
+{/notempty}
+  <li class="col-md-6 col-sm-12 col-xs-12 text hidden-xs"><span>更新时间：</span>{$zanpian['vod_addtime']|date='Y-m-d H:i:s',###}</li>
+  <li class="col-md-12 col-sm-12 col-xs-12 hidden-xs"><span>详细介绍：</span><span class="details-content-default">{$zanpian['vod_content']|strip_tags|msubstr=0,70,true}</span>
+  </li>
+  </ul>
+  </div>
+</div>
+</div>
+
+{/volist}
+
+</div>
+    </div>
+    {notempty name="volist"}<div class="box-page clearfix ajax-page" id="long-page"><ul>{$volist->render()}</ul></div>{/notempty}
+  </div>   
+       <!--右侧模块开始-->
+    <div class="col-md-3 col-sm-12 box-main-side hidden-sm hidden-xs">
+   {include file="vod_detail_right" /}
+ <!--右侧模块结束-->
+</div> 
+</div>
+<script>
+var type_ajax_url="index.php?s=home-up-show";
+var type_parms={"id":"{$id}","dir":"{$param['dir']}","type":"{$param['type']}","month":"{$month|date='Ym',###}","p":1};
+  </script>
+{include file="footer" /}
+</body>
+</html>

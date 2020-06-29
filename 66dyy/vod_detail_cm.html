@@ -1,0 +1,67 @@
+<!--<div class="layout-box clearfix" id="zanpian-cm" data-type="uyan" data-uyan-uid="1544538" style="margin-top:20px;background:#FFF"></div>
+<div class="layout-box clearfix" id="zanpian-cm" data-type="changyan" data-changyan-id="34565" data-changyan-conf="34565"></div>-->
+<div class="layout-box clearfix" id="zanpian-cm" data-type="zanpian" data-id="{$info[$show['name'].'_id']}" data-cid="{$show['list_id']}" data-sid="{$show['list_sid']}">
+  <div class="box-title">
+    <h3 class="m-0">{$info['vod_name']}评论</h3>
+  </div>
+  <div class="box-comment">
+    <form id="commform" method="post">
+      <div class="ui-form" id="cmt-input-tip">
+        <input type="text" class="form-control" value="我也要写评论。。。">
+      </div>
+      <div class="ui-form clear" id="cmt-input-bd" style="display:none;">
+        <div class="ui-form-item" id='reply_0'>
+          <textarea cols="60" rows="5" class="form-control" id="comm_txt" name="comm_txt" placeholder="请在这里发表您的个人看法，最多1000个字。" autocomplete="off" data-default="发布评论"></textarea>
+        </div>
+        <div class="ui-form-info clear clearfix text-overflow"> 
+        <span class="emotion pull-left" tabindex="1" data-id='0'><i class="icon iconfont text-color">&#xe64e;</i>
+        </span>        
+         <a rel="nofollow" class="ui-button btn btn-success  sub pull-right" id="subcomm" href="javascript:void(0);">提交</a>
+ {notempty name="GLOBALS['config']['user']['sys']['user_code']"}
+ <div class="pull-right" style="padding:0px 5px">
+ <span id="validate-zanpian"><label><img class="validate-img" src="{:url('home/verify/index',array('t'=>time()))}"></label></span>
+ </div>
+ <div class="pull-right p-0">
+<input class="form-control input" style="width:100px; text-align:center" data="validate" name="validate" type="text" placeholder="验证码">
+</div>
+{/notempty}        
+          <p class="pull-right" style="line-height:30px; margin-right:20px;">请勿提交非法信息和广告，违反者查封ID，甚至永久删除！谢谢合作~</p>           
+        </div>
+      </div>
+    </form>
+  </div>
+<div id="emots"></div>
+<div style="display:none" id="commsub">
+  <div class="comment-replay">
+    <div class="comment-replay-arrow"></div>
+    <div class="comment-replay-cnt">
+      <form method="post" id="comm-sub-form">
+        <div class="ui-form-item recm_id" id='0'>
+          <textarea class="form-control" id="commtxt" name="recomm_txt" placeholder="请在这里发表您的个人看法，最多1000个字。" autocomplete="off"></textarea>
+        </div>
+        <div class="comment-replay-assist fn-clear clearfix"><span class="emotion pull-left" tabindex="1" data-id='0' id="row_id"><i class="icon iconfont text-color">&#xe64e;</i></span>
+          <input type="hidden" id="comm_vid" value="0" name="comm_vid">
+          <input type="hidden" id="comm_pid" value="0" name="comm_pid">
+          <input type="hidden" id="comm_id" value="0" name="comm_id">
+          <input type="hidden" id="comm_tuid" value="0" name="comm_tuid">
+          <input type="hidden" id="comm_sid" value="0" name="comm_sid">
+          <a rel="nofollow" class="pull-right ui-button btn btn-success btn-sm sub" href="javascript:void(0);">回复此人</a>
+  {notempty name="GLOBALS['config']['user']['sys']['user_code']"}
+ <div class="pull-right" style="padding:0px 5px">
+ <span id="validate-zanpian"><label><img class="validate-img" src="{:url('home/verify/index',array('t'=>time()))}"></label></span>
+ </div>
+ <div class="pull-right p-0">
+<input class="form-control" style="width:100px; text-align:center" data="validate" name="validate" type="text" placeholder="验证码">
+</div>
+{/notempty}         
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="comment-focus" id="comment">
+<ul class="ui-comment">
+     <li class="loading">评论加载中...</li>
+</ul>
+</div>
+</div>

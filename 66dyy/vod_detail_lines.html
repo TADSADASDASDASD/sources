@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{$info['vod_name']}经典台词_{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}台词 {gt name="param['p']" value="1"}第{$param['p']}页{/gt} -{$site_name}</title>
+<meta name="keywords" content="{$info['vod_name']}经典台词,{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}台词">
+<meta name="description" content="{$site_name}为您提供{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}台词、{$info['vod_name']}角色经典台词等更多信息请关注">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+{topic var="vod_news" did="'.$info['vod_id'].'" sid="1" tsid="2" limit="1"}{/topic}
+{lines var="vod_lines" vid="'.$info['vod_id'].'"  limit="*"}{/lines}
+<!--盒子开始--> 
+<div class="container">
+  <div class="row">
+  <!--左侧板块开始--> 
+{include file="vod_detail_nav" /}
+<div class="col-md-9 col-sm-12 box-main-content">
+  <div class="layout-box clearfix mt-0"> 
+  {include file="vod_detail_min_info" /}
+<div class="details-title text-center"><h1 class="m-0">{$info['vod_name']}经典台词</h1></div>
+<span class="pull-right btn btn-xs btn-success top" id="user_detail_add" data-url="{:zanpian_user_url('user/center/addlines',array('vid'=>$info.vod_id))}"><i class="icon iconfont text-color">&#xe61a;</i>添加台词</span>
+<ul class="lines_ul clearfix">
+{volist name="vod_lines" id="zanpian"} 
+<li class="col-md-12">
+<div class="lines_img">
+{notempty name="zanpian['role_id']"}
+<img src="{$zanpian['role_pic']|zanpian_img_url}" width="80px" height="80px">
+{else /}<img src="{$info['vod_pic']|zanpian_img_url}" width="80px" height="80px">{/notempty}
+<span class="lines_name">{notempty name="zanpian['role_name']"}<a href="{:zanpian_read_url('home/role/read',$zanpian)}" target="_blank" title="{$zanpian.vod_name}">{$zanpian['role_name']}</a>{else /}{$info['vod_name']}{/notempty} : </span></div>
+<p class="lines_txt">
+{$zanpian['lines_content']}
+</p>
+<p>
+<span class="pull-left">{$zanpian['lines_addtime']|time_format='Y-m-d H:i:s',1}</span>
+<span class="pull-right love" id="up" data-id="{$zanpian.lines_id}" data-sid="14" data-type="up"><span class="num" id="count" data-count="{$zanpian.lines_up}">{$zanpian.lines_up}</span></span>
+</p>
+</li>
+{/volist}
+ </ul>
+</div>  
+ {include file="vod_detail_tab" /}
+</div>
+
+<div class="col-md-3 col-sm-12 box-main-side hidden-sm hidden-xs">
+<div class="layout-box clearfix mt-0">
+<div class="col-md-12 p-0">
+<div class="col-md-6 col-sm-12 col-xs-12 p-0">
+<a class="video-pic" href="{:zanpian_read_url('home/vod/read',$info)}" title="{$info['vod_name']}"  style="background: url({$info['vod_pic']|zanpian_img_url}) no-repeat top center;background-size:cover;"><span class="note text-bg-r">{eq name="info['vod_isend']" value="1"}{$info['vod_title']}{else /}{$info['vod_continu']}{/eq}</span></a>
+</div>
+<div class="col-md-6 col-sm-12 col-xs-12" style=" padding-top:0px; padding-right:0px;">
+<div class="col-md-12 p-0 text-overflow"><strong>{$info['vod_name']}</strong></div>
+<div class="col-md-12 pg-0 text-overflow">{$info['vod_mcid']|get_mcat_url=$info.vod_cid,5}</div>
+<div class="col-md-12 p-0 text-overflow">{$info['vod_actor']}</div>
+<div class="col-md-12 pg-0 text-overflow">{$info['vod_year']|default='未录入'} / {$info['vod_area']|default='其他'}</div>
+<div class="col-md-12 p-0 text-overflow">{eq name="info['vod_isend']" value="1"}{$info['vod_title']}{else /}{$info['vod_continu']}{/eq}</div>
+<div class="col-md-12 pg-0 text-overflow"><span>评分：</span><span class="hits text-color" style="font-size:20px"><em>{$info['vod_gold']}</em></span></div>
+</div>
+</div>
+</div>
+{include file="vod_detail_right" /}     
+</div>
+</div>
+</div>
+{:gethits($info['vod_id'],$show['list_sid'])}
+<!--盒子结束--> 
+{include file="footer" /}
+</body>
+</html>

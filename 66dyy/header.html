@@ -1,0 +1,45 @@
+<!--头部开始-->
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+  <div class="row">
+      <div class="navbar-header">
+        <div class="navbar-toggle navbar-navmore" data-toggle="collapse" data-target="#example-navbar-collapse"><i class="icon iconfont">&#xe641;</i></div>
+        <div class="navbar-toggle navbar-login" id="navbar_user_login" title="点击登录"><i class="icon iconfont">&#xe64a;</i></div>
+        <div class="navbar-toggle navbar-search" title="播放记录"><i class="icon iconfont">&#xe78d;</i></div>
+        <a class="navbar-brand" href="{$site_path}">{$site_name}</a></div>
+        <div class="user-search hidden-md hidden-lg">
+        <div class="nav-search">
+       <form class="zanpian_search" data-limit="10" name="formsearch" id="formsearch" action="{:zanpian_url('home/search/index')}" method="post" autocomplete="off"><input class="form-control zanpian_wd" placeholder="输入影片关键词..." name="wd" id="wd" required="" type="text">
+       <button type="submit" class="btn btn-search"><i class="icon iconfont">&#xe642;</i></button>
+       </form>
+        </div>
+        </div>
+       <div class="collapse navbar-collapse" id="example-navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li id="nav-index" {eq name="route" value="home/index/index"}class="active"{else /}{in name="show['list_sid']" value="8,10,11"}class="active"{/in}{/eq}><a href="{$site_path}">首页</a></li>
+          {list pid="0" key="k" limit="9"}
+          <li id="nav-dianshiju" class="{eq name="zanpian.list_id" value="$show['list_pid']"}active{/eq}{eq name="zanpian.list_id" value="$show.list_id"}active{/eq} {egt name="k" value="10"} hidden-sm hidden-md hidden-lg{/egt}"><a href="{:zanpian_show_url($zanpian)}">{$zanpian.list_name}</a></li>
+          {/list}
+          <li class="dropdown hidden-xs">
+	   <a class="more" id="dropdownMenu1" data-toggle="dropdown">更多<i class="icon iconfont">&#xe8fe;</i></a>
+	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+         {list pid="0" start="9" limit="10"}
+		<li role="presentation" ><a role="menuitem" tabindex="-1" href="{:zanpian_show_url($zanpian)}" title="{$zanpian.list_name}">{$zanpian.list_name}</a></li>
+         {/list}
+		
+	</ul>
+    </li>
+       </ul>
+        <div class="nav-search  visible-md visible-lg">
+       <form class="zanpian_search" data-limit="10" name="formsearch" id="formsearch" action="{:zanpian_url('home/search/index')}" method="post" autocomplete="off">       <input class="form-control zanpian_wd" placeholder="输入影片关键词..." name="wd" id="wd" required="" type="text">
+       <button type="submit" class="btn btn-search"><i class="icon iconfont">&#xe642;</i></button>
+       </form>
+        </div>
+        <div class="user_login hidden-xs" id="user_login" title="点击登录"><i class="icon iconfont">&#xe64a;</i></div>
+        <div class="user_playlog hidden-xs" id="user_playlog" title="播放记录"><i class="icon iconfont">&#xe665;</i><div id="playlog_list" class="playlog_list"><ul><strong>loading...</strong></ul></div></div>
+        
+    </div>
+  </div>
+ </div> 
+</nav>
+<!--头部结束-->

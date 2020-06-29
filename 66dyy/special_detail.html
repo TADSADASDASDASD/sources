@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="info['special_title']"}{$info['special_title']}{else/}{$info['special_name']} {gt name="param['p']" value="1"}第{$param['p']}页{/gt} - {$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="info['special_keywords']"}{$info['special_keywords']}{else/}{$info['special_name']}{$show['list_name']}{/notempty}">
+<meta name="description" content="{notempty name="info['special_description']"}{$info['special_description']}{else/}{$info['special_name']}{$show['list_name']}{/notempty}">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<!--盒子开始--> 
+<div class="container">
+  <div class="row">
+   <div class="layout-box clearfix">
+      <div class="col-md-7 col-sm-12 col-xs-12">
+        <div class="box-video-list">
+          <div class="item">
+            <div class="pic" style="padding-top:50%;background: url({$info['special_bigpic']|zanpian_img_url})  no-repeat; background-position:50% 50%; background-size: cover;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-12 col-xs-12">
+        <div class="box-topic-content">
+          <div class="head">
+            <h3>{$info['special_name']}</h3>
+          </div>
+          <div class="item">{$info['special_content']|zanpian_news_img_array}</div>
+        </div>
+      </div>
+    </div>  
+  <!--左侧盒子开始--> 
+  <div class="col-md-9 col-sm-12 box-main-content">
+  {topic var="vod_list" tid="'.$info['special_id'].'" tsid="10" sid="1" id="zanpian" limit="*"}{/topic} 
+  {notempty name="vod_list"} 
+  <div class="layout-box clearfix">
+    <div class="box-title">
+    <h3 class="m-0">该专题包含影片</h3>
+    <div class="more pull-right"><span class="text-muted pull-right">共有<span class="text-color">“{:count($vod_list)}”</span>个影片</div>
+    </div>
+     <div class="box-topic-list clearfix">
+     <ul class="col-md-12 col-sm-12 col-xs-12 p-0 clearfix">
+             {foreach name="vod_list" id="zanpian"}
+            <li class="col-md-3 col-sm-3 col-xs-4">
+            <a class="video-pic loading" data-original="{$zanpian.vod_pic|zanpian_img_url}" href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian.vod_name}">
+            {notempty name="zanpian.vod_prty"} 
+            <span class="tips orange">推荐</span>
+            {/notempty}
+            <span class="player"></span>
+            <span class="score">{$zanpian.vod_gold}</span>
+            <span class="note text-bg-r">{notempty name="zanpian.vod_isend"}{notempty name="zanpian.vod_title"}{$zanpian.vod_title}{else /}{$zanpian.vod_continu}{/notempty}{else /}{$zanpian.vod_title}{/notempty}</span>
+            </a>
+            <div class="title"><h5 class="text-overflow"><a href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian.vod_name}">{$zanpian.vod_name}</a></h5></div>
+             <div class="subtitle text-muted text-overflow hidden-xs">{$zanpian.vod_actor}</div>
+            </li>
+            {/foreach}
+         </ul>
+         </div>
+    </div>
+    {/notempty}
+    {topic var="news_list" tid="'.$info['special_id'].'" tsid="10" sid="2" id="zanpian" limit="*"}{/topic} 
+    {notempty name="news_list"}
+  <div class="layout-box clearfix">
+    <div class="box-title">
+    <h3 class="m-0">该专题包含资讯</h3>
+    <div class="more pull-right"><span class="text-muted pull-right">共有<span class="text-color">“{:count($news_list)}”</span>篇资讯</div>
+    </div>
+     <div class="box-topic-list clearfix">
+     <div class="col-md-12 col-sm-12 col-xs-12 p-0 clearfix">
+{foreach name="news_list" id="zanpian"}
+        <div class="col-md-12 col-sm-12 col-xs-12 clearfix news-box-txt p-0">
+<div class="col-md-4 col-sm-4 col-xs-12 news-box-txt-l"><a class="video-pic loading" href="{:zanpian_read_url('home/news/read',$zanpian)}" title="{$zanpian.news_name}" data-original="{$zanpian.news_pic|zanpian_img_url}" style="padding-top:62.5%;"><span class="note text-bg-c">{$zanpian.news_name|msubstr=0,15,'...'}</span></a></div>
+<div class="col-md-8 col-sm-8 col-xs-12"><div class="news-info">
+<div class="news-info-top"><h3><a href="{:zanpian_read_url('home/news/read',$zanpian)}" target="_blank">{$zanpian.news_name}</a></h3><span class="hidden-sm hidden-xs">{$zanpian.news_addtime|date='Y-m-d H:i:s',###}</span></div>
+<div class="news-info-txt">
+{$zanpian.news_remark|msubstr=0,100,'...'}
+</div>
+</div></div>
+</div>
+{/foreach}
+         </div>
+         </div>
+    </div>  
+    {/notempty}  
+  {topic var="star_list" tid="'.$info['special_id'].'" tsid="10" sid="3" id="zanpian" limit="*"}{/topic} 
+  {notempty name="star_list"} 
+  <div class="layout-box clearfix">
+    <div class="box-title">
+    <h3 class="m-0">该专题包含明星</h3>
+    <div class="more pull-right"><span class="text-muted pull-right">共有<span class="text-color">“{:count($star_list)}”</span>位明星</div>
+    </div>
+     <div class="box-topic-list clearfix">
+     <ul class="col-md-12 col-sm-12 col-xs-12 p-0 clearfix">
+            {foreach name="star_list" id="zanpian"}
+            <li class="col-md-3 col-sm-3 col-xs-4">
+            <a class="video-pic loading" data-original="{$zanpian.star_pic|zanpian_img_url}" href="{:zanpian_read_url('home/star/read',$zanpian)}" title="{$zanpian.star_name}">
+            <span class="flower hidden-xs"></span><span class="fnum hidden-xs">{$zanpian.star_up}</span><span class="note text-bg-r">{$zanpian.star_name}</span>
+            </a>
+            </li>
+            {/foreach}
+         </ul>
+         </div>
+    </div>
+    {/notempty} 
+     {include file="vod_detail_cm" /}        
+  </div>
+  
+ <!--左侧盒子结束--> 
+ 
+ <!--右侧盒子开始--> 
+  <div class="col-md-3 col-sm-12 box-main-side hidden-sm hidden-xs">
+      <div class="layout-box clearfix">
+    <div class="box-title pg-0">
+        <div class="box-details-qrcode side clearfix">
+          <div class="item">
+            <h5 class="text-muted">扫一扫用手机查看</h5>
+            <p class="qrcode"></p>
+            <p class="text-muted">分享到朋友圈</p>
+          </div>
+     </div>
+    <h3 class="m-0"><i class="icon iconfont text-color">&#xe66e;</i>视频排行榜</h3>
+    </div>  
+     <div class="box-video-text-list clearfix p-0">
+        <ul class="clearfix mg-0">
+        {vod limit="10" order="vod_hits_day desc" key="i"}
+          <li class="list p-0 text-overflow"><a class="pull-left" href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian.vod_name}"><em class="num {lt name="i" value="4"}active{/lt}">{$i}</em>{$zanpian.vod_name}</a><span class="hits text-color">{$zanpian.vod_hits_day}</span></li>      
+        {/vod}
+       </ul>
+  </div> 
+  
+
+    <div class="box-title" style="padding-left:0px; padding-right:0px;">
+    <h3 class="m-0"><i class="icon iconfont text-color">&#xe626;</i>推荐{$list_name}</h3>
+    <div class="more pull-right"><a href="{:zanpian_show_url($list_id)}" class="text-muted" title="更多">更多 <i class="icon iconfont">&#xe65e;</i></a></div>
+    </div>  
+     <div class="box-video-ranking clearfix" style="padding:0px">
+          <div class="item">
+            <ul class="clearfix">
+            {special limit="4" order="special_addtime desc"} 
+              <li class="text-overflow"><a class="video-pic loading" href="{:zanpian_read_url('home/special/read',$zanpian)}" title="{$zanpian.info['special_name']}" data-original="{$zanpian.special_pic|zanpian_img_url}" style="padding-top:50%;"><span class="player"></span><span class="note text-bg-c">{$zanpian.info['special_name']}</span></a></li>
+          {/special}    
+
+
+            </ul>
+          </div>
+        </div>  
+  
+</div>
+</div> 
+ <!--右侧盒子结束-->  
+</div>
+</div>
+{:gethits($info['special_id'],$show['list_sid'])}
+<!--盒子结束--> 
+{include file="footer" /}
+</body>
+</html>

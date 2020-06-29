@@ -1,0 +1,17 @@
+{notempty name="info['story_id']"}
+<div class="layout-box clearfix details-story">
+    <div class="box-title">
+    <h3 class="m-0">{$info['vod_name']}分集剧情</h3>
+    <div class="more pull-right"><a href="{:zanpian_read_url('home/story/read',$info)}" class="text-muted" title="更多">更多 <i class="icon iconfont">&#xe65e;</i></a></div>
+    </div>
+<div class="item">
+{part vid="'.$info['vod_id'].'" limit="3" order='part_oid desc'}
+<h4 class="text-overflow"><a class="pull-left" href="{:zanpian_read_url('home/part/read',$zanpian)}" target="_blank">{$info['vod_name']}<em>{$zanpian.part_name}剧情</em><span class="hidden-xs">{$zanpian.part_title}</span></a><a class="pull-right" href="{:zanpian_read_url('home/part/read',$zanpian)}" title="{$info['vod_name']}{$zanpian.part_name}剧情" target="_blank">查看详细 <i class="icon iconfont">&#xe65e;</i></a></h4>
+<div class="details-content">
+{$zanpian.part_content|htmlspecialchars_decode|msubstr=0,100,'...'}
+</div>
+
+{/part}    
+  </div>  
+</div>   
+{/notempty}

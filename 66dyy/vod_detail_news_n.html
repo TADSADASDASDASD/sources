@@ -1,0 +1,14 @@
+{notempty name="vod_news"}
+<div class="layout-box clearfix">
+    <div class="box-title">
+    <h3 class="m-0">{$info['vod_name']}花絮.资讯</h3>
+    <div class="more pull-right"><a href="{:zanpian_read_url('home/vod/news',$info)}" class="text-muted" title="更多">更多 <i class="icon iconfont">&#xe65e;</i></a></div>
+    </div>
+    <div class="swiper-container news-switch-3">
+   <ul class="swiper-wrapper clearfix">
+{volist name="vod_news" id="zanpian"}
+<li class="swiper-slide"><a class="video-pic swiper-lazy" href="{:zanpian_read_url('home/news/read',$zanpian)}" title="{$zanpian.news_name}" data-background="{$zanpian.news_pic|zanpian_img_url}" style="padding-top:62.5%;background-position:50% 50%;background-size:cover;"><span class="note text-bg-c text-overflow">{$zanpian.news_name}</span><div class="swiper-lazy-preloader"></div></a></li>{/volist}
+         </ul>
+         </div>
+</div>   
+{/notempty}

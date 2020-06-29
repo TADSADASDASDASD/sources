@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="info['story_title']"}{$info['story_title']}{else /}{$info['vod_name']}剧情_{$info['vod_name']}全集剧情_{$info['vod_name']}分集剧情介绍 -{$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="info['story_keywords']"}{$info['story_keywords']}{else /}{$info['vod_name']}剧情,{$info['vod_name']}全集剧情,{$info['vod_name']}分集剧情{/notempty}">
+<meta name="description" content="{notempty name="info['story_description']"}{$info['story_description']}{else /}{$info['vod_name']}剧情,{$info['vod_name']}全集剧情,{$info['vod_name']}分集剧情{/notempty}"> 
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<!--盒子开始--> 
+<div class="container">
+  <div class="row">
+  <!--左侧板块开始--> 
+{topic var="vod_news" did="'.$info['vod_id'].'" sid="1" tsid="2" limit="1"}{/topic}  
+{include file="vod_detail_nav" /}
+<div class="col-md-9 col-sm-12 box-main-content">
+  <div class="layout-box clearfix mt-0"> 
+{include file="vod_detail_min_info" /}
+<div  class="text-overflow text-left details-title">分集剧情选择:<span>
+{eq name="info['story_isend']" value="1"}{$info['story_continu']}集全集剧情{else /}(剧情已更新到{$info['story_name']}{notempty name="info['vod_total']"}，共{:preg_replace('/\D/s','',$info['vod_total'])}集){else /}){/notempty}{/eq}</span><span class="pull-right btn btn-xs btn-success" id="user_detail_add" data-url="{:zanpian_user_url('user/center/addpart',array('vid'=>$info.vod_id))}"><i class="icon iconfont text-color">&#xe61a;</i>添加剧集</span></div>
+ <div class="playlist">
+ <ul class="clearfix" style="display:block">
+  {part var="part_list" vid="'.$info['story_vid'].'" limit="*"}{/part}
+  {volist name="part_list" id="zanpian" key="ii"}
+ <li><a href="{:zanpian_read_url('home/part/read',$zanpian)}" {eq name='zanpian.part_id' value='$info.part_id'}class="active"{/eq}>{$zanpian.part_name}{$zanpian.part_uptime|time_day}</a></li>
+   {/volist}
+  </ul>
+ </div>
+ <div class="details-story">
+<div class="item">
+<h1 class="text-center">{$info.vod_name}剧情介绍</h1>
+<div id="popover-info" class="details-content text-justify">
+{notempty name="info['story_content']"}
+<p>{$info['story_content']|zanpian_news_img_array|zanpian_content_replace=###,$info}</p>
+{else /}
+<p>{$info['vod_content']|zanpian_news_img_array|zanpian_content_replace=###,$info}</p>
+{/notempty}
+</div>
+  </div>  
+</div>  
+</div>
+{include file="vod_detail_tab" /}
+</div>
+<div class="col-md-3 col-sm-12 box-main-side hidden-sm hidden-xs">
+<div class="layout-box clearfix mt-0">
+<div class="col-md-12 p-0">
+<div class="col-md-6 col-sm-12 col-xs-12 p-0">
+<a class="video-pic" href="{:zanpian_read_url('home/vod/read',$info)}" title="{$info['vod_name']}"  style="background: url({$info['vod_pic']|zanpian_img_url}) no-repeat top center;background-size:cover;"><span class="note text-bg-r">{eq name="info['vod_isend']" value="1"}{$info['vod_title']}{else /}{$info['vod_continu']}{/eq}</span></a>
+</div>
+<div class="col-md-6 col-sm-12 col-xs-12" style=" padding-top:0px; padding-right:0px;">
+<div class="col-md-12 p-0 text-overflow"><strong>{$info['vod_name']}</strong></div>
+<div class="col-md-12 pg-0 text-overflow">{$info['vod_mcid']|get_mcat_url=$info.vod_cid,5}</div>
+<div class="col-md-12 p-0 text-overflow">{$info['vod_actor']}</div>
+<div class="col-md-12 pg-0 text-overflow">{$info['vod_year']|default='未录入'} / {$info.vod_area|default='其他'}</div>
+<div class="col-md-12 p-0 text-overflow">{eq name="info['vod_isend']" value="1"}{$info['vod_title']}{else /}{$info['vod_continu']}{/eq}</div>
+<div class="col-md-12 pg-0 text-overflow"><span>评分：</span><span class="hits text-color" style="font-size:20px"><em>{$info['vod_gold']}</em></span></div>
+</div>
+</div>
+</div>
+{include file="vod_detail_right" /}     
+</div>  
+</div>
+</div>
+{:gethits($info['story_vid'],1)}
+{:gethits($info['story_id'],$show['list_sid'])}
+<!--盒子结束--> 
+{include file="footer" /}
+</body>
+</html>

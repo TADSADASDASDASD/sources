@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="info['vod_play_title']"}{$info['vod_play_title']}{else/}《{$info.vod_name}》{$info.play_name}在线观看 - {$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="info['vod_play_keywords']"}{$info.vod_play_keywords}{else/}{$info.vod_name}{$info.play_name},{$info.vod_name}免费观看,{$info.vod_name}{$info.play_name}在线观看,{$info.vod_name}全集,{$info.vod_name}{$info.vod_title}{/notempty}">
+<meta name="description" content="{$show['list_name']}{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}免费在线观看,{$info.vod_name}是一部由{$info['vod_director']}导演的作品，将于{$info['vod_year']}在{$info['vod_area']}上映。">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<!--固定位2-->
+<script src="/bfq.js"></script>
+<!--固定位2-->
+<!--盒子开始--> 
+<div class="container">
+  <div class="row">
+   <div class="layout-box clearfix p-0 m-0">
+   <div class="col-md-9 col-sm-12 col-xs-12 player_left">
+   <div class="player_title"><div class="play_nav hidden-xs"><a href="{$site_path}">首页</a>{eq name="show.list_pid" value="0"}<i class="icon iconfont">&#xe65e;</i><a href="{:zanpian_show_url($show)}"  title="{$show.list_name}" target="_blank">{$show.list_name}</a>{else/}<i class="icon iconfont">&#xe65e;</i><a href="{:zanpian_show_url($show.list_pid)}" title="{:getlistname($show.list_pid,'list_name')}" target="_blank">{:getlistname($show.list_pid,'list_name')}</a><i class="icon iconfont">&#xe65e;</i><a href="{:zanpian_show_url($show)}">{$show.list_name}</a>{/eq}<i class="icon iconfont">&#xe65e;</i><a href="{:zanpian_read_url('home/vod/read',$info)}">{$info.vod_name}</a><i class="icon iconfont">&#xe65e;</i></div><h1>{$info.vod_name}{$info.play_name}在线观看</h1><div class="player-tool hidden-xs"><i class="iconfont">&#xe63c;</i><em>关灯</em></span></div></div>
+   <div id="zanpiancms_player">
+   <div class="embed-responsive embed-responsive-16by9" id="cms_play">
+{$info.vod_player}
+   </div>
+   </div>
+   <div class="player-shrink hidden-xs hidden-sm icon iconfont" id="player-shrink"></div>
+   {include file="barrage" /}         
+   <div class="player_bottom">
+   <div class="col-md-8 col-sm-8 col-xs-12 p-0">
+   <div class="details-tool" id="zanpian-score">
+<div class="vod-sect user-bt">
+<a rel="nofollow" id="love" class="sect-btn b-r"  href="javascript:void(0);" data-type="love" data-id="{$info.vod_id}" data-cid="{$info.vod_cid}"><i class="iconfont">&#xe626;</i>收藏</a>
+<div class="sect-show">
+<a rel="nofollow" id="yeslove" class="cancel active b-r"  href="javascript:void(0);" data-type="love" data-id="{$info.vod_id}" data-cid="{$info.vod_cid}"><i class="iconfont">&#xe626;</i>已收</a>
+</div></div>
+<div class="vod-rss user-bt">
+<a rel="nofollow" id="remind" class="sect-btn b-l b-r" href="javascript:void(0);" data-type="remind" data-id="{$info.vod_id}" data-cid="{$info.vod_cid}"><i class="iconfont">&#xe601;</i>订阅</a>
+<div class="sect-show">
+<a rel="nofollow" id="yesremind" class="sect-show cancel active b-l b-r" href="javascript:void(0);" data-type="remind" data-id="{$info.vod_cid}" data-cid="{$info.vod_id}"><i class="iconfont">&#xe601;</i>已订</a>
+</div></div>
+<div id="updown">
+<a rel="nofollow" id="up" class="b-l b-r hidden-xs"  href="javascript:void(0);" data-type="up" data-id="{$info.vod_id}" data-sid="{$show.list_sid}"><i class="iconfont hidden-xs hidden-sm">&#xe607;</i>顶(<strong id="count">{$info.vod_up}</strong>)</a> 
+<a rel="nofollow" id="down" class="b-l b-r hidden-xs" href="javascript:void(0);" data-type="down" data-id="{$info.vod_id}" data-sid="{$show.list_sid}"><i class="iconfont hidden-xs hidden-sm">&#xe606;</i>踩(<strong id="count">{$info.vod_down}</strong>)</a>
+</div>
+<a rel="nofollow" class="b-l b-r hidden-xs" id="qrcode" data-toggle="popover" data-trigger="hover" data-placement="top" data-container="body" data-title="手机浏览请扫瞄二维码"  href="javascript:void(0);"><i class="iconfont hidden-sm">&#xe62d;</i>手机</a>
+</div></div>
+<div class="col-md-4 col-sm-4 col-xs-12 p-0 prevnext hidden-xs">
+{neq name="info['play_pid']" value="1"}
+<a rel="nofollow" class="b-l b-r" href="{:zanpian_play_url($info,array('sid'=>$info['play_sid'],'pid'=>$info['play_pid']-1))}" id="pre" target="_self"><i class="iconfont hidden-xs hidden-sm">&#xe8ff;</i>上一集</a>
+{else /}
+<a rel="nofollow" class="b-l b-r" href="" target="_self"><i class="iconfont hidden-xs hidden-sm">&#xe8ff;</i>没有了</a>
+{/neq}
+{neq name="info.play_count" value="$info['play_pid']"}
+<a href="{:zanpian_play_url($info,array('sid'=>$info['play_sid'],'pid'=>$info['play_pid']+1))}" class="b-l" id="next"  target="_self">下一集<i class="iconfont hidden-xs hidden-sm">&#xe65e;</i></a>
+{else /}
+<a rel="nofollow" class="b-l" href="" target="_self">没有了<i class="iconfont hidden-xs hidden-sm">&#xe65e;</i></a>
+{/neq}
+</div>
+</div>
+</div>
+<!--固定位-->
+<script src="/bfq2.js"></script>
+<!--固定位-->
+  <div class="col-md-3 col-sm-12 col-xs-12  player_right pg-0">
+  <div class="details-play-title">
+     <ul class="nav nav-tabs"> 
+     <li class="dropdown mplayer active">
+            <a href="#" id="myTabDrop2" class="gico {$info.player_name}" data-toggle="dropdown"><span class="name">{$info.player_title|msubstr=0,2}</span><b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop2">
+            {volist name="info.vod_play_list" id="zanpian"}
+            <li><a class="gico {$zanpian.play_name}" href="#con_playlist_{$i}" tabindex="-1" data-toggle="tab">{$zanpian.play_title|msubstr=0,2}</a></li>
+            {/volist}
+        </ul>
+    </li> 
+    <li class="title">{$info.player_title}{$info.play_name}</li>  
+</ul>
+</div>
+{notempty name="info.vod_tvcont"}
+<div class="player_prompt text-overflow text-muted">{$info.vod_tvcont}</div>
+{/notempty}
+  <div class="player_playlist">
+ {volist name="info.vod_play_list" id="zanpian"}
+ <ul class="clearfix fade {eq name="zanpian['play_sid']" value="$info.play_sid"}in active{/eq}"  id="con_playlist_{$i}">
+  {php}$countjii=count($zanpian['play_urls'])-1;if($zanpian['play_urls']>40){krsort($zanpian['play_urls']);}{/php}
+ {volist name="zanpian['play_urls']" id="urls" key="iii"}
+ <li {eq name="show.list_id" value="$tpl_id[4]"}class="list3"{else/}class="list4"{/eq}><a {eq name="zanpian['play_sid']" value="$info.play_sid"}{eq name="urls['pid']" value="$info.play_pid"}class="active"{/eq}{/eq} target="_self" href="{:zanpian_play_url($info,$urls)}">{$urls.name}</a></li>
+ {/volist}  
+  </ul>
+  {/volist}
+ </div>
+   </div>
+   <div class="player-open"></div>
+   </div>
+  
+ <!--左侧模块开始-->
+   <div class="col-md-9 col-sm-12 box-main-content" style="position:static">
+   	<!--介绍-->
+  {include file="vod_detail_js" /}
+  <!--介绍-->
+  <!--视频下载开始-->  
+ {include file="vod_detail_down" /}
+ <!--视频下载结束--> 
+ <!--视频剧情开始-->  
+ {include file="vod_detail_story" /}
+ <!--视频剧情结束-->
+    <!--视频新闻开始-->  
+ {include file="vod_detail_news_n" /}
+ <!--视频新闻结束-->   
+ <!--视频同主演同类型开始-->     
+ {include file="vod_detail_tab" /}
+  <!--视频同主演同类型结束-->    
+   <!--视频评论开始-->     
+ {include file="vod_detail_cm" /}
+  <!--视频评论结束-->         
+</div>
+  <!--左侧模块结束--> 
+    <!--右侧模块开始-->
+<div class="col-md-3 col-sm-12 box-main-side hidden-sm hidden-xs">
+
+{include file="vod_detail_right" /}
+</div>
+</div>
+<span class="playlog-set hidden" data-id="{$info.vod_id}" data-pid="{$info.play_pid}" data-sid="{$info.play_sid}" data-name="{$info.play_name}" data-count="{$info.play_count}">观看记录</span>
+{:gethits($info['vod_id'],$show['list_sid'])}
+<!--盒子结束--> 
+{include file="footer" /}
+</body>
+</html>

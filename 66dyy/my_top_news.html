@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="show['list_title']"}{$show['list_title']}{else/}{$show['list_name']}排行榜_热门{$show['list_name']}大全  - {$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="show['list_keywords']"}{$show['list_keywords']}{else/}{$show['list_name']}排行榜,{$show['list_name']}排行榜,热门{$list_name}大全{/notempty}">
+<meta name="description" content="{notempty name="show['list_description']"}{$show['list_description']}{else/}热门{$show['list_name']}TOP100排行榜排行榜{/notempty}">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<div class="container">
+  <div class="row">
+    <div class="layout-box clearfix">
+    <div class="box-title-nav">
+    <ul class="clearfix">
+    <li><a class="text-overflow" href="{:zanpian_show_url($show['list_pid'])}">全部榜单</a></li>
+   {list pid="'.$show['list_pid'].'" id="list" order="list asc"}
+    <li><a class="text-overflow {eq name="list.list_id" value="$show['list_id']"}active{/eq}" href="{:zanpian_show_url($list)}">{$list.list_name}</a></li>
+{/list}
+    </ul>
+    </div>    
+    </div>
+ <div class="layout-box clearfix">
+    <div class="box-title">
+    <h3 class="m-0"><i class="icon iconfont text-color">&#xe66e;</i>{$show.list_name}TOP60</h3>
+    <div class="more pull-right"><span class="text-muted pull-right">TOP<span class="text-color">“15”</span>个视频</span></div>
+    </div>
+        {news limit="16" order="news_hits desc" key="i"}
+<div class="col-md-3 col-sm-6 col-xs-12 clearfix news-box hotlist">
+<a class="video-pic loading" href="{:zanpian_read_url('home/news/read',$zanpian)}" title="{$zanpian.news_name}" data-original="{$zanpian.news_pic|zanpian_img_url}" style="padding-top:62.5%;"><span class="top"><em>{$i}</em></span><span class="note text-bg-c">{$zanpian.news_name|msubstr=0,15,'...'}</span></a><div class="news-txt">{$zanpian.news_remark|msubstr=0,60,'...'}</div></div>
+{/news}
+     
+</div>
+  </div>
+</div>
+{include file="footer" /}
+</body>
+</html>

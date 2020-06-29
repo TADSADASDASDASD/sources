@@ -1,0 +1,74 @@
+<div class="col-md-12 col-sm-12 col-xs-12 p-0 clearfix tv_detail_box">
+<div class="tv_detail_week">
+<ul>
+{volist name="info['tv_week_list']" id="zanpian"}
+        <a  data="p-{$zanpian.wid}" target="_self" {if condition="($zanpian.date == 1) OR ($zanpian.cut == 1) "}class="active"{/if}>{$zanpian.date}<em>{notempty name="zanpian.day"}今天{else /}{$zanpian.week} {/notempty}</em></a>
+        {/volist}
+</ul></div>
+<div id="content">
+<div class="col-md-4 col-sm-4 col-xs-12 p-0 clearfix">
+<div class="layout-box clearfix">
+<div class="tv_detail_title">早间节目（00:00 ~ 09:00）</div>
+    <div class="box-video-text-list clearfix">
+       <ul>
+        {volist name="info['tv_data_list']['data']" id="tv"}
+         {between name="tv.time" value="00:00,08:59"}
+         <li class="list1 text-overflow">
+         {php}$vod=get_vod_url($tv['keywords'],1,$info['tv_name']);{/php}
+         {notempty name="tv.live"}
+              <span class="pull-left time">{$tv.time}</span>{notempty name="vod"}<a href="{:zanpian_read_url('home/vod/read',$vod)}" target="_blank">{$tv.keywords}</a>{else /}{$tv.name}{/notempty}<span class="tv-live pull-left hidden-xs">直播中<em class="tv-live-l"></em></span>
+              {else /}
+              <span class="pull-left time">{$tv.time}</span>{notempty name="vod"}<a href="{:zanpian_read_url('home/vod/read',$vod)}" target="_blank">{$tv.keywords}</a>{else /}{$tv.name}{/notempty}
+          {/notempty}
+           </li>
+          {/between}
+         {/volist} 
+            </ul>
+        </div>
+</div>
+</div>
+
+
+ <div class="col-md-4 col-sm-4 col-xs-12 p-0 clearfix">
+ <div class="layout-box clearfix">
+ <div class="tv_detail_title">白天节目（09:00 ~ 18:00）</div>
+    <div class="box-video-text-list clearfix">
+            <ul>
+        {volist name="info['tv_data_list']['data']" id="tv"}
+         {between name="tv.time" value="09:00,17:59"}
+         {php}$vod=get_vod_url($tv['keywords'],1,$info['tv_name']);{/php}
+         <li class="list1 text-overflow">
+         {notempty name="tv.live"}
+              <span class="pull-left time">{$tv.time}</span>{notempty name="vod"}<a href="{:zanpian_read_url('home/vod/read',$vod)}" target="_blank">{$tv.keywords}</a>{else /}{$tv.name}{/notempty}<span class="tv-live pull-left hidden-xs">直播中<em class="tv-live-l"></em></span>
+              {else /}
+              <span class="pull-left time">{$tv.time}</span>{notempty name="vod"}<a href="{:zanpian_read_url('home/vod/read',$vod)}" target="_blank">{$tv.keywords}</a>{else /}{$tv.name}{/notempty}
+          {/notempty}
+          </li> 
+          {/between}
+         {/volist} 
+            </ul>
+</div></div>
+</div>
+ <div class="col-md-4 col-sm-4 col-xs-12 p-0 clearfix">
+  <div class="layout-box clearfix">
+   <div class="tv_detail_title">晚间节目（18:00 ~ 24:00）</div>
+    <div class="box-video-text-list clearfix">
+            <ul>
+        {volist name="info['tv_data_list']['data']" id="tv"}
+         {between name="tv.time" value="18:00,23:59"}
+         <li class="list1 text-overflow">
+         {php}$vod=get_vod_url($tv['keywords'],1,$info['tv_name']);{/php}
+         {notempty name="tv.live"}
+              <span class="pull-left time">{$tv.time}</span>{notempty name="vod"}<a href="{:zanpian_read_url('home/vod/read',$vod)}" target="_blank">{$tv.keywords}</a>{else /}{$tv.name}{/notempty}<span class="tv-live pull-left hidden-xs">直播中<em class="tv-live-l"></em></span>
+              {else /}
+              <span class="pull-left time">{$tv.time}</span>{notempty name="vod"}<a href="{:zanpian_read_url('home/vod/read',$vod)}" target="_blank">{$tv.keywords}</a>{else /}{$tv.name}{/notempty}
+          {/notempty}
+          </li>
+          {/between}
+         {/volist} 
+            </ul>
+        </div>
+        </div>
+</div>
+</div>
+</div> 

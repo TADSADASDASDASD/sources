@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{empty name="info.vod_stitle"}{if condition="($show['list_pid'] eq $tpl_id[2]) OR ($show['list_id'] eq $tpl_id[3]) OR ($show['list_id'] eq $tpl_id[4])"}《{$info['vod_name']}》全集免费高清在线观看－{empty name=":getlistname($show['list_pid'],'list_name')"}{$show['list_name']}{else/}{:getlistname($show['list_pid'],'list_name')}{/empty}{else/}《{$info['vod_name']}》免费高清在线观看-免费下载{/if}-{$site_name}{else/}{$info.vod_stitle}{/empty}</title>
+<meta name="keywords" content="{$show['list_name']}{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}免费高清在线观,{$info['vod_name']}花絮,{$info['vod_name']}剧情">
+<meta name="description" content="{$show['list_name']}{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}免费高清在线观看由{$site_name}为您提供。{$info['vod_name']}主演：{$info['vod_actor']}等人。">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+{topic var="vod_news" did="'.$info['vod_id'].'" sid="1" tsid="2" limit="3"}{/topic}
+<!--固定位2-->
+<script src="/bfq.js"></script>
+<!--固定位2-->
+<!--盒子开始--> 
+<div class="container">
+  <div class="row">
+  <!--左侧板块开始--> 
+{include file="vod_detail_nav" /}
+  <div class="layout-box clearfix p-0 mt-0"> 
+<div class="col-md-9 col-sm-12 col-xs-12"> 
+<!--视频左侧模块开始-->
+<div class="col-md-3 col-sm-3 col-xs-4 clearfix">
+<div class="details-pic">
+<a class="video-pic" href="{$vod_playurl}" title="{$info['vod_name']}"  style="background: url({$info['vod_pic']|zanpian_img_url}) no-repeat top center;background-size:cover;"></a>
+<div class="details-tool">
+<div class="vod-sect user-bt">
+<a rel="nofollow" id="love" class="sect-btn b-r"  href="javascript:void(0);" data-type="love" data-id="{$info['vod_id']}" data-cid="{$info['vod_cid']}"><i class="iconfont hidden-sm hidden-xs">&#xe626;</i>收藏</a>
+<div class="sect-show">
+<a rel="nofollow" id="yeslove" class="cancel active b-r"  href="javascript:void(0);" data-type="love" data-id="{$info['vod_id']}" data-cid="{$info['vod_cid']}"><i class="iconfont hidden-xs hidden-sm">&#xe626;</i>已收</a>
+</div></div>
+<div class="vod-rss user-bt">
+<a rel="nofollow" id="remind" class="sect-btn b-l b-r" href="javascript:void(0);" data-type="remind" data-id="{$info['vod_id']}" data-cid="{$info['vod_cid']}"><i class="iconfont hidden-xs hidden-sm">&#xe601;</i>订阅</a>
+<div class="sect-show">
+<a rel="nofollow" id="yesremind" class="sect-show cancel active b-l b-r" href="javascript:void(0);" data-type="remind" data-id="{$info['vod_cid']}" data-cid="{$info['vod_id']}"><i class="iconfont hidden-xs hidden-sm">&#xe601;</i>已订</a>
+</div></div>
+<a rel="nofollow" class="b-l hidden-xs" id="qrcode" data-toggle="popover" data-trigger="hover" data-placement="top" data-container="body" data-title="手机浏览请扫瞄二维码"  href="javascript:void(0);"><i class="iconfont hidden-sm">&#xe62d;</i>手机</a>
+</div>
+</div>
+</div>
+<!--视频左侧模块结束-->
+ <!--视频信息板块开始-->
+<div class="col-md-9 col-sm-9 col-xs-8 clearfix p-0">
+  <div class="details-info p-0" id="zanpian-score" data-id="{$info.vod_id}" data-sid="{$show.list_sid}">
+  <div id="rating" class="hidden-xs"><span class="ratingtxt">给影片评分：</span>
+            <ul class="rating">
+              <li class="one current" title="很差" val="1">很差</li>
+              <li class="two current" title="较差" val="2">较差</li>
+              <li class="three current" title="还行" val="3">还行</li>
+              <li class="four" title="推荐" val="4">推荐</li>
+              <li class="five" title="力荐" val="5">力荐</li>
+            </ul>
+            <span id="ratewords">还行</span>
+            </div>
+  <h1 class="text-overflow">{$info['vod_name']}{notempty name="info['vod_continu']"}<em class="hidden-sm hidden-md hidden-lg">{notempty name="info['vod_title']"}{$info['vod_title']}{else /}{$info['vod_continu']}{/notempty}</em>{/notempty}</h1>
+  <ul class="info clearfix">
+  <li class="col-md-12 text hidden-xs">
+  {notempty name="info['vod_aliases']"}<span>别名：</span>{$info['vod_aliases']}{/notempty}
+  </li>
+  {eq name="info['vod_isend']" value="1"}
+  <li class="col-md-6 col-sm-6 col-xs-12 text hidden-xs">
+  <span class="hidden-xs">状态：</span>
+{notempty name="info['vod_title']"}{$info['vod_title']}{else /}{$info['vod_continu']}{/notempty}
+</li>
+{/eq}
+  <li class="col-md-6 col-sm-6 col-xs-12 text hidden-xs">
+  {if condition="($show['list_pid'] eq $tpl_id[2]) OR ($show['list_id'] eq $tpl_id[3]) OR ($show['list_id'] eq $tpl_id[4])"}
+  
+{eq name="info['vod_isend']" value="1"}
+<span>提醒：</span>
+{notempty name="info['vod_tvcont']"}<storng>{$info['vod_tvcont']}</storng>{else /}连载中,待更新{/notempty}
+{else /}
+<span>状态：</span>{notempty name="info['vod_total']"}共{$info['vod_total']}{eq name="show['list_id']" value="$tpl_id[4]"}期{else /}集{/eq}全{else /}{notempty name="info['vod_title']"}{$info['vod_title']}{else /}连载中,待更新{/notempty}{/notempty}
+{/eq}
+{else /}
+<span>清晰：</span>{$info['vod_title']}
+{/if}  
+  </li>
+  <li class="col-md-12 text"><span class="hidden-xs">类型：</span>{$info['vod_mcid']|get_mcat_url=$info.vod_cid,5}</li>
+  <li class="col-md-12 text"><span class="hidden-xs">{eq name="show['list_id']" value="$tpl_id[4]"}主持：{else /}主演：{/eq}</span>{$info['vod_actor']|get_star_url=8}</li>  
+  <li class="col-xs-12 text hidden-sm hidden-md hidden-lg"><span class="hidden-xs">年代：</span>{$info['vod_year']|default='未录入'} / {$info['vod_area']|default='其他'}{notempty name="info['vod_diantai']"} / {$info.vod_diantai}{else /} / {$info['vod_director']}{/notempty}</li>
+  <li class="col-md-6 col-sm-6 col-xs-12 text hidden-xs"><span>导演：</span>{$info['vod_director']|get_star_url=2}</li>
+  <li class="col-md-6 col-sm-6 col-xs-4 text hidden-xs"><span>国家/地区：</span>{$info['vod_area']|default='其他'}</li>
+<li class="col-md-6 col-sm-6 col-xs-12  text">
+{if condition="($show['list_pid'] eq $tpl_id[2]) OR ($show['list_id'] eq $tpl_id[3])"}
+<span class="hidden-xs">集数：</span>
+{notempty name="info['vod_total']"}共{php}echo preg_replace('/\D/s', '', $info['vod_total']);{/php}集&nbsp;&nbsp;|&nbsp;&nbsp;{/notempty}每集{$info['vod_length']|default='45'}分钟
+{elseif condition="($show['list_pid'] eq $tpl_id[1]) OR ($show['list_id'] eq $tpl_id[5])" /}
+<span class="hidden-xs">时长：</span>{$info['vod_length']|default='120'}分钟
+{elseif condition="$show['list_id'] eq $tpl_id[4]" /}
+<span class="hidden-xs">时长：</span>每期{$info['vod_length']|default='90'}分钟
+{/if}
+</li>
+  <li class="col-md-6 col-sm-6 col-xs-6 text hidden-xs"><span>语言/字幕：</span>{$info['vod_language']|default='国语对白 中文字幕'}</li>
+  <li class="col-md-6 col-sm-6 col-xs-6 text hidden-xs">
+{if condition="($show['list_pid'] eq $tpl_id[2]) OR ($show['list_id'] eq $tpl_id[3]) OR ($show['list_id'] eq $tpl_id[4])"}
+{notempty name="info['vod_filmtime']"}<span class="hidden-xs">首播时间：</span>{$info['vod_filmtime']|date='Y-m-d',###}{else /}<span>年代：</span>{notempty name="info['vod_year']"}{$info.vod_year}{/notempty}{/notempty}
+{elseif condition="($show['list_pid'] eq $tpl_id[1]) OR ($show['list_id'] eq $tpl_id[5])" /}
+{notempty name="info['vod_filmtime']"}<span class="hidden-xs">上映时间：</span>{$info['vod_filmtime']|date='Y-m-d',###}{else /}<span>年代：</span>{notempty name="info['vod_year']"}{$info.vod_year}{/notempty}{/notempty}
+{/if}
+</li>
+{notempty name="info['vod_diantai']"}
+<li class="col-md-6 col-sm-6 col-xs-6 text hidden-xs"><span>首播/卫视：</span>{$info['vod_diantai']|get_tv_url}</li>
+{/notempty}
+  <li class="col-md-6 col-sm-6 col-xs-12 text hidden-xs"><span>更新时间：</span>{$info['vod_addtime']|date='Y-m-d H:i:s',###}</li>
+  <li class="col-md-6 col-sm-12 col-xs-6 text hidden-sm hidden-xs"><span>影视/评论：</span><a rel="nofollow" href="#zanpian-cm">当前有<em id="commnum">0</em>条评论，<i class="iconfont">&#xe632;</i></a></li>
+  <li class="col-md-12 col-sm-12 col-xs-12 pb-0"><span class="hidden-xs">详细介绍：</span>
+  <span class="details-content-default">{$info['vod_content']|strip_tags|msubstr=0,25,true}</span>
+  <span class="details-content-all collapse">{$info['vod_content']|strip_tags}</span>
+  <a class="hidden-xs" href="javascript:;" data-toggle="collapse" data-target=".details-content-all" data-default=".details-content-default" data-html="收起">详情</a>
+  </li>
+</ul>
+</div>
+</div>
+ <!--视频信息板块结束-->
+</div>
+ <!--视频右侧板块开始-->
+<div class="col-md-3 col-sm-3 col-xs-3 hidden-sm hidden-xs">
+<div style="padding-bottom:0px;">
+	  <div class="rating-box" id="rating-main">
+      <div class="rating-total fn-clear"><div class="rating-total-item" id="total">&nbsp;</div><div class="pingfen-total"><strong id="pingfen"></strong><em id="pingfen2"></em></div></div><div class="rating-panle"><div class="rating-bar"><div class="rating-bar-item" id="fenshu">&nbsp;</div></div><ul class="rating-show"><li><span title="力荐" class="starstop star5">力荐</span><div class="power"><div class="power-item" id="pam"></div></div><em id="pa">人</em></li><li><span title="推荐" class="starstop star4">推荐</span><div class="power"><div class="power-item" id="pbm"></div></div><em id="pb">人</em></li><li><span title="还行" class="starstop star3">还行</span><div class="power"><div class="power-item" id="pcm"></div></div><em id="pc">人</em></li><li><span title="较差" class="starstop star2">较差</span><div class="power"><div class="power-item" id="pdm"></div></div><em id="pd">人</em></li><li><span title="很差" class="starstop star1">很差</span><div class="power"><div class="power-item" id="pem"></div></div><em id="pe">人</em></li></ul></div></div>
+ <div class="rating-box" id="rating-kong"><div class="rating-kong-item"><span class="loadingg">评分加载中...</span></div></div>
+ <!--视频介绍左侧热门明星开始-->
+{php}$actors=implode(',',array_slice(explode(',',format_text($info['vod_actor'])),0,3));{/php}
+{star var="star_hits" name="'.$actors.'" limit='3' order="star_hits desc"}{/star}
+    <div class="clearfix" id="myTab">
+      <ul class="box-star-list" >
+        {volist name="star_hits" id="zanpian"}
+        <li class="col-md-4 col-sm-4 col-xs-4 {eq name="i" value="1"}active{/eq}  {eq name="i" value="4"}hidden{/eq}">
+        <a class="star-pic loading img-circle" data-original="{$zanpian.star_pic|zanpian_img_url}" style="padding-top:100%;" href="#con_star_{$i}" data-toggle="tab"><span>{$zanpian.star_name}</span></a>
+        </li>
+        {/volist}
+      </ul>
+    </div>
+    <div class="clearfix star-video-list">
+    {volist name="star_hits" id="zanpian"}
+      <div class="box-star-list fade {eq name="i" value="1"}in active{/eq}" id="con_star_{$i}">
+        {vod actor="'.$zanpian['star_name'].'" not="'.$info['vod_id'].'" limit="3" key="key" order="vod_addtime desc"}
+        <div class="col-md-6 col-sm-6 col-xs-6 {eq name="key" value="3"}hidden{/eq}"> <a  href="{:zanpian_read_url('home/vod/read',$zanpian)}" target="_blank" class="video-pic" style="background: url({$zanpian.vod_pic|zanpian_img_url})  no-repeat;background-size:cover;" title="{$zanpian.vod_name}" > <span class="note text-bg-c">{$zanpian.vod_name}</span> </a> </div>
+        {/vod}
+        </div>
+      {/volist}
+      </div>
+       <!--视频介绍左侧热门明星结束-->
+    </div>
+     </div>
+ <!--视频右侧板块结束-->     
+</div>
+ <!--视频播出时间开始-->  
+ {include file="vod_detail_tv" /}
+ <!--视频播出时间结束-->
+ <!--左侧模块开始-->
+   <div class="col-md-9 col-sm-12 box-main-content" style="position:static">
+    {eq name="info['vod_copyright']" value="1"}
+    <div class="layout-box clearfix text-center">
+    {$info['vod_copyright_txt']}
+    </div>
+   {else /}
+   {notempty name="info['vod_play_list']"}
+   <div class="details-play-title">
+<ul class="nav nav-tabs hidden-xs" id="playTab">
+    {volist name="info['vod_play_list']" id="zanpian" offset="0" length='5'}
+    <li class="{eq name="i" value="1"}active {/eq} hidden-xs"><a class="gico {$zanpian.play_name}" href="#con_playlist_{$i}" data-toggle="tab">{$zanpian.play_title|msubstr=0,2}</a></li>
+    {/volist}
+    {gt name=":count($info['vod_play_list'])" value="5"}
+    <li class="dropdown player-more">
+            <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">更多<b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+            {volist name="info['vod_play_list']" id="zanpian" offset="5"}
+            <li><a class="gico {$zanpian.play_name}" href="#con_playlist_{$i+5}" tabindex="-1" data-toggle="tab">{$zanpian.play_title|msubstr=0,2}</a></li>
+            {/volist}
+        </ul>
+    </li> 
+    {/gt}  
+    <div class="play-bug"><a rel="nofollow" href="{:zanpian_data_url('home/gb/show',array('id'=>$info['vod_id']))}" target="_blank"><i class="iconfont">&#xe635;</i>不能播放，报错</a></div> 
+</ul>
+<!--固定位-->
+<script src="/bfq2.js"></script>
+<!--固定位-->
+<ul class="nav nav-tabs hidden-sm hidden-md hidden-lg">
+    <li class="source m-0 p-0"><a>来源：</a></li>
+
+ <li class="dropdown mplayer active">
+            <a href="#" id="myTabDrop2" class="gico {$info['vod_play_list'][1]['play_name']}" data-toggle="dropdown"><span class="name">{$info['vod_play_list'][1]['play_title']|msubstr=0,2}</span><b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop2">
+            {volist name="info['vod_play_list']" id="zanpian"}
+            <li><a class="gico {$zanpian.play_name}" href="#con_playlist_{$i}" tabindex="-1" data-toggle="tab">{$zanpian.play_title|msubstr=0,2}</a></li>
+            {/volist}
+        </ul>
+    </li>   
+</ul>
+</div>
+<div class="layout-box clearfix m-0">
+ <div class="playlist">
+ {volist name="info['vod_play_list']" id="zanpian"}
+ <ul class="clearfix fade {eq name="i" value="1"}in active{/eq}"  id="con_playlist_{$i}">
+ {php}$countjii=count($zanpian['play_urls'])-1;if($zanpian['play_urls']>40){krsort($zanpian['play_urls']);}{/php}
+ {volist name="zanpian['play_urls']" id="urls" key="iii"}
+ <li><a target="_blank" href="{:zanpian_play_url($info,$urls)}">{$urls.name|msubstr=0,10}{eq name="iii" value="1"}{$info.vod_addtime|time_day}{/eq}</a></li>
+ {/volist}  
+  </ul>
+  {/volist}
+ </div>
+</div>
+{/notempty}
+{/eq}
+ <!--介绍-->
+  {include file="vod_detail_js" /}
+  <!--介绍-->
+ <!--视频下载开始-->  
+ {include file="vod_detail_down" /}
+ <!--视频下载结束--> 
+ <!--视频剧情开始-->  
+ {include file="vod_detail_story" /}
+ <!--视频剧情结束-->
+   <!--视频演员角色开始-->  
+ {include file="vod_detail_actor" /}
+ <!--视频演员角色结束-->
+   <!--视频新闻开始-->  
+ {include file="vod_detail_news_n" /}
+ <!--视频新闻结束-->     
+  <!--视频同主演同类型开始-->     
+ {include file="vod_detail_tab" /}
+  <!--视频同主演同类型结束--> 
+ <!--视频评论开始-->     
+ {include file="vod_detail_cm" /}
+  <!--视频评论结束-->            
+</div>
+  <!--左侧模块结束--> 
+    <!--右侧模块开始-->
+<div class="col-md-3 col-sm-12 box-main-side hidden-sm hidden-xs">
+   {include file="vod_detail_right" /}
+ <!--右侧模块结束-->
+</div>
+</div>
+{:gethits($info['vod_id'],$show['list_sid'])}
+<!--盒子结束--> 
+{include file="footer" /}
+</body>
+</html>

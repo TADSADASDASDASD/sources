@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="show['list_title']"}{$show['list_title']}{else/}最新{$show['list_name']}-{:getlistname($show['list_pid'],'list_name')} {$show['list_name']} {gt name="param['p']" value="1"}第{$param['p']}页{/gt} - {$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="show['list_keywords']"}{$show['list_keywords']}{else/}最新{$show['list_name']},{$site_keywords}{/notempty}">
+<meta name="description" content="{notempty name="show['list_description']"}{$show['list_description']}{else/}{$site_description}{/notempty}">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<div class="container">
+  <div class="row">
+
+     <!--模块开始-->
+    <div class="layout-box clearfix">
+        <div class="box-title">
+    <h3 class="m-0"><i class="icon iconfont text-color">&#xe605;</i>{$show['list_name']}</h3>
+    </div>
+   <iframe width="100%" scrolling="no" height="600" align="middle" frameborder="no" src="//zhibo.97bike.com/live.html" hspace="0" vspace="0" marginheight="0" marginwidth="0" name="tv"></iframe>
+   </div>
+  </div>
+</div>
+{include file="footer" /}
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{$param.wd}搜索{gt name="param.p" value="1"}第{$param.p}页{/gt}-{$site_name}</title>
+<meta name="keywords" content="{notempty name="list_keywords"}{$list_keywords}{else/}{$param.wd}{/notempty}">
+<meta name="description" content="{notempty name="list_description"}{$list_description}{else/}{$param.wd}{/notempty}">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<div class="container">
+  <div class="row">  
+{notempty name="param.wd"}
+{php}$sid=1;{/php}
+{vod var="list" wd="'.$param['wd'].'"  limit="10" page="true" order="vod_addtime desc"}{/vod}  
+{empty name="list"}  
+{star var="list" name="'.$param['wd'].'"  limit="5" page="true" order="star_addtime desc"}{/star}
+{php}$sid=3;{/php}
+{/empty}
+{empty name="list"} 
+{news var="list" wd="'.$param['wd'].'"  limit="5" page="true" order="news_addtime desc"}{/news}
+{php}$sid=2;{/php}
+{/empty} 
+    <div class="layout-box clearfix">
+    <div class="box-title-nav">
+    <ul class="clearfix seach-nav-tabs">
+    <li><a class="text-overflow {if condition="($sid eq 1)"}active{/if}" href="javascript:;" data="sid-1">视频</a></li>
+    <li><a class="text-overflow {if condition="($sid eq 3)"}active{/if}" href="javascript:;" data="sid-3">明星</a></li>
+    <li><a class="text-overflow {if condition="($sid eq 2)"}active{/if}" href="javascript:;" data="sid-2">新闻</a></li>
+    </ul>
+    </div>    
+    </div> 
+
+ 
+   <div class="col-md-9 col-sm-12 box-main-content"> 
+      <div class="layout-box clearfix">
+          <div class="box-title">
+      <h3 class="m-0">搜索关键词{$param.wd}</h3>
+<div class="more pull-right" id="count">共找到<span class="text-color">“{$list->total()}”</span>个相关视频</div>
+    </div>
+    <div class="clearfix" id="content">
+{if condition="($sid eq 1)"}  
+  {volist name="list" id="zanpian"} 
+<div class="details-info-min col-md-12 col-sm-12 col-xs-12 clearfix news-box-txt p-0"> 
+<div class="col-md-3 col-sm-4 col-xs-3 news-box-txt-l clearfix"><a class="video-pic loading" href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian['vod_name']}" data-original="{$zanpian.vod_pic|zanpian_img_url}" style="padding-top:150%;"><span class="note text-bg-c">{$zanpian['vod_name']}</span></a></div>
+<div class="col-md-9 col-sm-8 col-xs-9 clearfix pb-0">
+<div class="details-info p-0">
+<ul class="info clearfix">
+ <li class="col-md-6 col-sm-6 col-xs-12"><a href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian['vod_name']}">{$zanpian['vod_name']|get_hilight_ex=$param.wd,'font','#09BB07'}</a><span class="hidden-sm hidden-md hidden-lg">{$zanpian['vod_title']}</span></li>
+ <li class="col-md-6 text hidden-xs">{notempty name="zanpian['vod_aliases']"}<span>别名：</span>{$zanpian['vod_aliases']}{/notempty}</li>  
+ 
+ <li class="col-md-12 col-sm-12 col-xs-12 hidden-xs"><span>状态：</span>{notempty name="zanpian.vod_isend"}{notempty name="zanpian.vod_title"}{$zanpian.vod_title}{else /}{$zanpian.vod_continu}{/notempty}{else /}{$zanpian.vod_title}{/notempty}</li>
+ <li class="col-md-12 col-sm-12 col-xs-12 text"><span class="hidden-xs">类型：</span>{$zanpian['vod_mcid']|get_mcat_url=$zanpian['vod_cid']}</li>
+ <li class="col-md-12 col-sm-12 col-xs-12 text"><span class="hidden-xs">{eq name="zanpian['vod_cid']" value="$tpl_id[4]"}主持：{else /}主演：{/eq}</span>{$zanpian['vod_actor']|get_star_url|get_hilight_ex=$param.wd,'font','#09BB07'}</li>  
+ <li class="col-xs-12 text hidden-sm hidden-md hidden-lg"><span class="hidden-xs">年代：</span>{$zanpian['vod_year']|default='未录入'} / {$zanpian['vod_area']|default='其他'} / {notempty name="zanpian['vod_diantai']"}{$zanpian['vod_diantai']|get_tv_url=###,'storng'}{else /}{$zanpian['vod_director']|get_star_url}{/notempty}</li>
+  <li class="col-md-6 col-sm-6 col-xs-12 text hidden-xs"><span>导演：</span>{$zanpian['vod_director']|get_star_url|get_hilight_ex=$param.wd,'font','#09BB07'}</li>
+  <li class="col-md-6 col-sm-12 col-xs-4 text hidden-xs"><span>国家/地区：</span>{$zanpian['vod_area']|default='其他'}</li>
+<li class="col-md-6 col-sm-6 col-xs-12  text hidden-xs">
+{if condition="(getlistpid($zanpian['vod_cid']) eq $tpl_id[2]) OR ($zanpian['vod_cid'] eq $tpl_id[3])"}
+<span>集数：</span>
+{notempty name="zanpian['vod_total']"}共{php}echo preg_replace('/\D/s', '', $zanpian['vod_total']);{/php}集&nbsp;&nbsp;|&nbsp;&nbsp;{/notempty}每集{$zanpian['vod_length']|default='45'}分钟
+{elseif condition="(getlistpid($zanpian['vod_cid']) eq $tpl_id[1]) OR ($zanpian['vod_cid'] eq $tpl_id[5])" /}
+<span>时长：</span>{$zanpian['vod_length']|default='120'}分钟
+{elseif condition="$zanpian['vod_cid'] eq $tpl_id[4]" /}
+<span>时长：</span>每期{$zanpian['vod_length']|default='90'}分钟
+{/if}
+</li>
+  <li class="col-md-6 col-sm-12 col-xs-6 text hidden-xs"><span>语言/字幕：</span>{$zanpian['vod_language']|default='国语对白 中文字幕'}</li>
+  <li class="col-md-6 col-sm-6 col-xs-6 text hidden-xs">
+{if condition="(getlistpid($zanpian['vod_cid']) eq $tpl_id[2]) OR ($zanpian['vod_cid'] eq $tpl_id[3]) OR ($zanpian['vod_cid'] eq $tpl_id[4])"}
+{notempty name="zanpian['vod_filmtime']"}<span>首播时间：</span>{$zanpian['vod_filmtime']|date='Y-m-d',###}{else /}<span>年代：</span>{$zanpian['vod_year']|default='未录入'}{/notempty}
+{elseif condition="(getlistpid($zanpian['vod_cid']) eq $tpl_id[1]) OR ($zanpian['vod_cid'] eq $tpl_id[5])" /}
+{notempty name="zanpian['vod_filmtime']"}<span>上映时间：</span>{$zanpian['vod_filmtime']|date='Y-m-d',###}{else /}<span>年代：</span>{$zanpian['vod_year']|default='未录入'}{/notempty}
+{/if}
+</li>
+{notempty name="zanpian['vod_diantai']"}
+<li class="col-md-6 col-sm-12 col-xs-6 text hidden-xs"><span>首播/卫视：</span>{$zanpian['vod_diantai']|get_tv_url}</li>
+{/notempty}
+  <li class="col-md-6 col-sm-12 col-xs-12 text hidden-xs"><span>更新时间：</span>{$zanpian['vod_addtime']|date='Y-m-d H:i:s',###}</li>
+  <li class="col-md-12 col-sm-12 col-xs-12 hidden-xs"><span>详细介绍：</span><span class="details-content-default">{$zanpian['vod_content']|strip_tags|msubstr=0,70,true|get_hilight_ex=$param.wd,'font','#09BB07'}</span>
+  </li>
+  </ul>
+  </div>
+</div>
+</div>
+{/volist}
+{/if}
+{if condition="($sid eq 2)"}
+{volist name="list" id="zanpian"}
+<div class="star-info-min col-md-12 col-sm-12 col-xs-12 clearfix news-box-txt p-0">
+<div class="col-md-2 col-sm-3 col-xs-3 news-box-txt-l"><a class="video-pic loading" href="{:zanpian_read_url('home/star/read',$zanpian)}" title="{$zanpian['star_name']|default='未知'}" data-original="{$zanpian.star_pic|zanpian_img_url}"><span class="note text-bg-c">{$zanpian['star_name']|default='未知'}</span></a></div>
+<div class="col-md-10 col-sm-9 col-xs-9"><div class="news-info">
+<div class="actor-role-top"><strong><a class="text-color" href="{:zanpian_read_url('home/star/read',$zanpian)}" target="_blank">{$zanpian['star_name']|default='未知'|get_hilight_ex=$param.wd,'font','#09BB07'}</a></strong><div class="more pull-right hidden-xs"><a href="{:zanpian_read_url('home/star/read',$zanpian)}" class="text-muted" title="详细">详细 <i class="icon iconfont">&#xe65e;</i></a></div></div>
+<div class="details-info p-0" style="width:100%">
+<ul class="info clearfix">
+<li class="col-md-12 col-sm-12 col-xs-12 pg-0 hidden-sm hidden-md hidden-lg text-overflow"><span>{$zanpian['star_bm']} {$zanpian['star_xb']} / {$zanpian['star_gj']} / {$zanpian['star_zy']}</span></li>
+<li class="col-md-12 col-sm-12 col-xs-12 p-0 hidden-sm hidden-md hidden-lg text-overflow"><span>{$zanpian['star_sg']} / {$zanpian['star_tz']} / {$zanpian['star_xz']}</span></li>
+<li class="col-md-6 col-sm-6 col-xs-6 pg-0 hidden-xs"><span>中文名：</span>{$zanpian['star_name']}</li>
+<li class="col-md-6 col-sm-6 col-xs-6 pg-0 hidden-xs"><span>别名：</span>{$zanpian['star_bm']}</li>
+<li class="col-md-6 col-sm-6 col-xs-6 pg-0 hidden-xs"><span>身高：</span>{$zanpian['star_sg']}</li>
+<li class="col-md-6 col-sm-6 col-xs-6 pg-0 hidden-xs"><span>体重：</span>{$zanpian['star_tz']}</li>
+<li class="col-md-6 col-sm-6 col-xs-6 pg-0 hidden-xs"><span>国籍：</span>{$zanpian['star_gj']}</li>
+<li class="col-md-6 col-sm-6 col-xs-6 pg-0 hidden-xs"><span>星座：</span>{$zanpian['star_xz']}</li>
+<li class="col-md-12 col-sm-12 col-xs-12 pg-0 text-overflow"><span class="hidden-xs">详细介绍：</span>{$zanpian['star_content']|msubstr=0,40,'…'}
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+{/volist}
+{/if}
+{if condition="($sid eq 3)"}
+{volist name="list" id="zanpian"}
+        <div class="col-md-12 col-sm-12 col-xs-12 clearfix news-box-txt p-0">
+<div class="col-md-4 col-sm-4 col-xs-12 news-box-txt-l"><a class="video-pic loading" href="{:zanpian_read_url('home/news/read',$zanpian)}" title="{$zanpian.news_name}" data-original="{$zanpian.news_pic|zanpian_img_url}" style="padding-top:62.5%;"><span class="note text-bg-c">{$zanpian.news_name|msubstr=0,15,'...'}</span></a></div>
+<div class="col-md-8 col-sm-8 col-xs-12"><div class="news-info">
+<div class="news-info-top"><h3><a href="{:zanpian_read_url('home/news/read',$zanpian)}" target="_blank">{$zanpian.news_name|get_hilight_ex=$param.wd,'font','#09BB07'}</a></h3><span class="hidden-sm hidden-xs">{$zanpian.news_addtime|date='Y-m-d H:i:s',###}</span></div>
+<div class="news-info-txt">
+{$zanpian.news_remark|msubstr=0,100,'...'|get_hilight_ex=$param.wd,'font','#09BB07'}
+</div>
+</div></div>
+</div>
+{/volist}
+{/if}
+</div>
+    </div>
+    <div class="box-page clearfix ajax-page" id="long-page"><ul>{$list->render()}</ul></div>
+  </div>   
+       <!--右侧模块开始-->
+    <div class="col-md-3 col-sm-12 box-main-side hidden-sm hidden-xs">
+   {include file="vod_detail_right" /}
+ <!--右侧模块结束-->
+</div> 
+{/notempty}
+</div>
+<script>
+var type_ajax_url="index.php?s=home-search-index-wd-{$param['wd']|urlencode}{$param['director']|urlencode}";
+var type_parms={"sid":"{$sid}","p":1};
+</script>
+{include file="footer" /}
+</body>
+</html>

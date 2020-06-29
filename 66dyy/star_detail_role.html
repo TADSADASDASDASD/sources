@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{$info['star_name']}最新角色_演过经典人物{gt name="param['p']" value="1"}第{$param['p']}页{/gt}- {$site_name}</title>
+<meta name="keywords" content="{$info['star_name']}角色,{$info['star_name']}演过的角色,{$info['star_name']}经典人物,{$info['star_name']}角色剧照">
+<meta name="description" content="{$info['star_name']}影视明星大全为你整理了{$info['star_name']}最新角色与以往的经典人物角色剧照介绍等信息；在线观看{$info['star_name']}最新影视代表作品大全，尽在{$site_name}影视大全。">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+{star var="star_hz" star="'.$info['star_name'].'" guan="'.$info['star_xi'].'" limit="3" order="star_hits desc"}{/star}
+{topic var="star_news" did="'.$info['star_id'].'" sid="3" tsid="2" limit="1"}{/topic}
+{vod var="star_dy" actor="'.$info['star_name'].'" cid="1" limit="1"}{/vod}
+{vod var="star_ds" actor="'.$info['star_name'].'" cid="2" limit="1"}{/vod}
+{vod var="star_zy" actor="'.$info['star_name'].'" cid="4" limit="1"}{/vod}
+{role var="star_role" star="'.$info['star_name'].'" limit="8" page="true"}{/role}
+{include file="star_detail_top" /}    
+<div class="container">
+<div class="row"> 
+<div class="clearfix"></div> 
+ {notempty name="star_role"}
+  <!--明星角色模块开始-->   
+<div class="layout-box clearfix{notempty name="info['star_bigpic']"} mt-0{/notempty}">
+  <div class="col-md-12 col-sm-12 col-xs-12 pg-0">
+      <div class="box-title">
+    <h3 class="m-0">{$info['star_name']}参演角色</h3>
+    <div class="more pull-right">共<span class="text-color">“{$star_role->total()}”</span>个角色</div>
+    </div>
+ {volist name="star_role" id="zanpian"}
+<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="col-md-12 col-sm-12 col-xs-12 news-box-txt p-0">
+<div class="col-md-2 col-sm-3 col-xs-3 news-box-txt-l"><a class="video-pic loading" href="{:zanpian_read_url('home/role/read',$zanpian)}" title="{$info['star_name']}{$zanpian.vod_name}{$zanpian.role_name}" data-original="{$zanpian.role_pic|zanpian_img_url}"><span class="note text-bg-c text-overflow">{$zanpian.role_name}</span></a></div>
+<div class="col-md-10 col-sm-9 col-xs-9 pb-0">
+<div class="news-info">
+<div class="actor-role-top"><strong><a href="{:zanpian_read_url('home/vod/read',$zanpian)}" target="_blank" title="{$zanpian.vod_name}">{$zanpian.vod_name}</a></strong><strong><a href="{:zanpian_read_url('home/role/read',$zanpian)}" target="_blank" title="{$zanpian.vod_name}{$zanpian.role_name}">{$zanpian.role_name}</a></strong><div class="more pull-right"><a href="{:zanpian_read_url('home/role/read',$zanpian)}" class="text-muted hidden-xs" title="详细">详细 <i class="icon iconfont">&#xe65e;</i></a></div></div>
+<div class="actor-role-info" style="min-height:60px;">
+{$zanpian.role_content|msubstr=0,60,'...'|default="暂无对此角色的描述。"}
+</div>
+</div></div>
+</div>
+</div>
+{/volist} 
+</div>
+{notempty name="star_role"}
+<div class="box-page clearfix m-0"><ul>{$star_role->render()}</ul></div>
+{/notempty} 
+</div>
+ <!--明星角色模块结束--> 
+  {/notempty}
+</div>
+</div>
+{:gethits($info['star_id'],$show['list_sid'])}
+<!--盒子结束--> 
+{include file="footer" /}
+</body>
+</html>

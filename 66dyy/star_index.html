@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="show['list_title']"}{$show['list_title']}{else/}{$show['list_name']}_大陆明星_港台明星_日韩明星_明星大全{gt name="param['p']" value="1"}第{$param['p']}页{/gt}{$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="show['list_keywords']"}{$show['list_keywords']}{else/}{$show['list_name']},大陆明星,港台明星,日韩明星,娱乐明星,电影明星,电视剧明星,明星大全{/notempty}">
+<meta name="description" content="{notempty name="show['list_description']"}{$show['list_description']}{else/}{$site_name}为您提供各大陆明星,港台明星,日韩明星等各国明星资料动态与影视作品。{/notempty}">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<div class="container">
+  <div class="row">
+
+    
+<div class="layout-box clearfix"> 
+ <div class="box-title">
+      <h3 class="m-0"><i class="icon iconfont text-color">&#xe66d;</i>荧幕热星</h3>
+      <div class="more pull-right"><a href="{:zanpian_type_url('home/star/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'sex'=>"",'zy'=>"",'area'=>'','letter'=>'','order'=>'hits'))}" class="text-muted" title="更多">更多 <i class="icon iconfont">&#xe65e;</i></a></div>
+    </div>
+    <!--小分类模块结束-->
+    <div class="clearfix" id="myTab">
+      <ul class="box-star-list" >
+        {star prty="1,2" field="star_id,star_name,star_cid,star_letters,star_pic,star_zy,star_area" limit="12" order="star_hits_month desc" key="i" cachename="default" cachetime="3600"}
+        <li class="col-md-1 col-sm-2 col-xs-4 {eq name="i" value="1"}active{/eq}  {gt name="i" value="3"} hidden-xs{/gt} {gt name="i" value="6"} hidden-sm{/gt}">
+        <a class="star-pic loading img-circle" data-original="{$zanpian.star_pic|zanpian_img_url}" style="padding-top:100%;" href="#hot_star_{$i}" data-toggle="tab"><span>{$zanpian.star_name}</span></a>
+        </li>
+        {/star}
+      </ul>
+    </div>
+    <div class="clearfix star-video-list" >
+    {star prty="1,2" field="star_id,star_name,star_cid,star_letters,star_pic,star_zy,star_area" limit="12" order="star_hits_month desc" key="i" cachename="default" cachetime="3600"}
+      <ul class="box-star-list fade {eq name="i" value="1"}in active{/eq}" id="hot_star_{$i}">
+        {vod cid="'.$tpl_id[1].','.$tpl_id[2].'" actor="'.$zanpian['star_name'].'" limit="6" order="vod_addtime desc" key="key" cachename="default" cachetime="3600"}
+        <li class="col-md-2 col-sm-3 col-xs-4 {gt name="key" value="3"} hidden-xs{/gt}{gt name="key" value="4"} hidden-sm{/gt}"><a  href="{:zanpian_read_url('home/vod/read',$zanpian)}" target="_blank" class="video-pic" style="background: url({$zanpian.vod_pic|zanpian_img_url})  no-repeat;background-size:cover;" title="{$zanpian.vod_name}" > <span class="note text-bg-c">{$zanpian.vod_name}</span> </a> </li>
+        {/vod}
+        </ul>
+      {/star}  
+</div>
+</div>     
+    <div class="layout-box clearfix">
+    <div class="box-title">
+    <h3 class="m-0">内地热星</h3>
+    <div class="more pull-right"><a href="{:zanpian_type_url('home/star/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'sex'=>"",'zy'=>"",'area'=>urlencode('中国,内地,大陆'),'letter'=>'','order'=>''))}" class="text-muted" title="更多">更多 <i class="icon iconfont">&#xe65e;</i></a></div>
+    </div>  
+
+        <div class="swiper-container vod-swiper-6">
+            <ul class="swiper-wrapper">
+            {star area="大陆,中国,内地" limit="12" order="star_hits_day desc"}
+              <li class="swiper-slide">
+                <a class="video-pic swiper-lazy" href="{:zanpian_read_url('home/star/read',$zanpian)}" title="{$zanpian.star_name}" data-background="{$zanpian.star_pic|zanpian_img_url}"><span class="flower hidden-xs"></span><span class="fnum hidden-xs">{$zanpian.star_up}</span><span class="note text-bg-c">{$zanpian.star_name}</span><div class="swiper-lazy-preloader"></div></a>
+              </li>
+           {/star}
+            </ul>
+            <div class="swiper-button-next hidden-xs"><i class="icon iconfont icon-right"></i></div>
+            <div class="swiper-button-prev hidden-xs"><i class="icon iconfont icon-left"></i></div>
+          </div>
+                <div class="box-video-footer visible-xs clearfix"><a href="{:getlistname($tpl_id[11],'list_url')}" class="text-more" title="查看更多">查看更多 <i class="icon iconfont icon-right pull-right"></i></a></div>
+
+ </div> 
+    <div class="layout-box clearfix">
+    <div class="box-title">
+    <h3 class="m-0">港台热星</h3>
+    <div class="more pull-right"><a href="{:zanpian_type_url('home/star/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'sex'=>"",'zy'=>"",'area'=>urlencode('香港,台湾,中国香港,中国台湾'),'letter'=>'','order'=>''))}" class="text-muted" title="更多">更多 <i class="icon iconfont">&#xe65e;</i></a></div>
+    </div>  
+        <div class="swiper-container vod-swiper-6">
+            <ul class="swiper-wrapper">
+            {star area="中国香港,中国台湾,香港,台湾" limit="12" order="star_hits_day desc"}
+              <li class="swiper-slide">
+               <a class="video-pic swiper-lazy" href="{:zanpian_read_url('home/star/read',$zanpian)}" title="{$zanpian.star_name}" data-background="{$zanpian.star_pic|zanpian_img_url}"><span class="flower hidden-xs"></span><span class="fnum hidden-xs">{$zanpian.star_up}</span><span class="note text-bg-c">{$zanpian.star_name}</span><div class="swiper-lazy-preloader"></div></a>
+              </li>
+           {/star}
+            </ul>
+            <div class="swiper-button-next hidden-xs"><i class="icon iconfont icon-right"></i></div>
+            <div class="swiper-button-prev hidden-xs"><i class="icon iconfont icon-left"></i></div>
+          </div>
+                <div class="box-video-footer visible-xs clearfix"><a href="{:zanpian_type_url('home/star/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'sex'=>"",'zy'=>"",'area'=>urlencode('香港,台湾,中国香港,中国台湾'),'letter'=>'','order'=>''))}" class="text-more" title="查看更多">查看更多 <i class="icon iconfont icon-right pull-right"></i></a></div>
+
+ </div> 
+    <div class="layout-box clearfix">
+    <div class="box-title">
+    <h3 class="m-0">韩日热星</h3>
+    <div class="more pull-right"><a href="{:zanpian_type_url('home/star/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'sex'=>"",'zy'=>"",'area'=>urlencode('韩国,日本'),'letter'=>'','order'=>''))}" class="text-muted" title="更多">更多 <i class="icon iconfont">&#xe65e;</i></a></div>
+    </div>  
+        <div class="swiper-container vod-swiper-6">
+            <ul class="swiper-wrapper">
+            {star area="韩国,日本" limit="12" order="star_hits_day desc"}
+              <li class="swiper-slide">
+                <a class="video-pic swiper-lazy" href="{:zanpian_read_url('home/star/read',$zanpian)}" title="{$zanpian.star_name}" data-background="{$zanpian.star_pic|zanpian_img_url}"><span class="flower hidden-xs"></span><span class="fnum hidden-xs">{$zanpian.star_up}</span><span class="note text-bg-c">{$zanpian.star_name}</span><div class="swiper-lazy-preloader"></div></a>
+              </li>
+           {/star}
+            </ul>
+            <div class="swiper-button-next hidden-xs"><i class="icon iconfont icon-right"></i></div>
+            <div class="swiper-button-prev hidden-xs"><i class="icon iconfont icon-left"></i></div>
+          </div>
+                <div class="box-video-footer visible-xs clearfix"><a href="{:zanpian_type_url('home/star/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'sex'=>"",'zy'=>"",'area'=>urlencode('韩国,日本'),'letter'=>'','order'=>''))}" class="text-more" title="查看更多">查看更多 <i class="icon iconfont icon-right pull-right"></i></a></div>
+
+ </div> 
+
+    <div class="layout-box clearfix">
+    <div class="box-title">
+    <h3 class="m-0">欧美热星</h3>
+    <div class="more pull-right"><a href="{:zanpian_type_url('home/star/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'sex'=>"",'zy'=>"",'area'=>urlencode('美国,加拿大,德国,法国,英国,西班牙,瑞典,瑞士,挪威,奥地利,意大利,芬兰'),'letter'=>'','order'=>''))}" class="text-muted" title="更多">更多 <i class="icon iconfont">&#xe65e;</i></a></div>
+    </div>  
+        <div class="swiper-container vod-swiper-6">
+            <ul class="swiper-wrapper">
+            {star area="美国,加拿大,德国,法国,英国,西班牙,瑞典,瑞士,挪威,奥地利,意大利,芬兰" limit="12" order="star_hits_day desc"}
+              <li class="swiper-slide">
+                <a class="video-pic swiper-lazy" href="{:zanpian_read_url('home/star/read',$zanpian)}" title="{$zanpian.star_name}" data-background="{$zanpian.star_pic|zanpian_img_url}"><span class="flower hidden-xs"></span><span class="fnum hidden-xs">{$zanpian.star_up}</span><span class="note text-bg-c">{$zanpian.star_name}</span><div class="swiper-lazy-preloader"></div></a>
+              </li>
+           {/star}
+            </ul>
+            <div class="swiper-button-next hidden-xs"><i class="icon iconfont icon-right"></i></div>
+            <div class="swiper-button-prev hidden-xs"><i class="icon iconfont icon-left"></i></div>
+          </div>
+                <div class="box-video-footer visible-xs clearfix"><a href="{:zanpian_type_url('home/star/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'sex'=>"",'zy'=>"",'area'=>urlencode('美国,加拿大,德国,法国,英国,西班牙,瑞典,瑞士,挪威,奥地利,意大利,芬兰'),'letter'=>'','order'=>''))}" class="text-more" title="查看更多">查看更多 <i class="icon iconfont icon-right pull-right"></i></a></div>
+
+ </div> 
+
+
+  </div>
+</div>
+{include file="footer" /}
+</body>
+</html>

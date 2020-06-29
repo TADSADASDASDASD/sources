@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="show['list_title']"}{$show['list_title']}{else/}最新{$show['list_name']}-{$show['list_name']}大全-热门{$show['list_name']}-好看的{$show['list_name']} - {$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="show['list_keywords']"}{$show['list_keywords']}{else/}最新{$show['list_name']},最新{$show['list_name']},热门{$show['list_name']},{$show['list_name']}大全{/notempty}">
+<meta name="description" content="{notempty name="show['list_description']"}{$show['list_description']}{else/}最新{$show['list_name']},热门{$show['list_name']},{$show['list_name']}大全,好看的{$show['list_name']},完全免费在线观看！{/notempty}">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<!--幻灯模块-->
+<div class="container">
+  <div class="row">
+  
+  <div class="layout-box clearfix">
+        <div class="box-min-mcid clearfix">
+        <div class="item clearfix">
+          <dl class="clearfix">
+            <dt class="text-muted">类型</dt>
+            <dd class="clearfix">
+            {mcat cid="'.$show['list_id'].'" offset="0" length='14'}
+            <a {gt name="i" value="16"}class="hidden-sm hidden-md hidden-lg"{/gt} href="{:zanpian_type_url('home/vod/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'mcid'=>$zanpian['m_cid'],'mename'=>$zanpian['m_ename'],'area'=>"",'earea'=>"",'year'=>"",'letter'=>"",'order'=>""))}" title="{$zanpian.m_name}" target="_blank">{$zanpian.m_name|msubstr=0,2}</a>
+            {/mcat} 
+            </dd>
+          </dl>
+          <dl class="clearfix">
+            <dt class="text-muted">地区</dt>
+            <dd class="clearfix">
+            {volist name="list_area" id="area"}
+            <a class="{gt name="i" value="14"}hidden-sm hidden-md hidden-lg{/gt}" href="{:zanpian_type_url('home/vod/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'mcid'=>"",'mename'=>"",'area'=>urlencode($area['name']),'earea'=>$area['ename'],'year'=>"",'letter'=>"",'order'=>""))}" target="_blank">{$area['name']|msubstr=0,2}</a>
+            {/volist}
+            
+            </dd>
+          </dl>          
+          <dl class="cleafix hidden-sm">
+            <dt class="text-muted">年份</dt>
+            <dd class="clearfix">
+            {volist name="list_year" id="year"}
+            <a {gt name="i" value="12"}class="hidden-sm hidden-md hidden-lg"{/gt} href="{:zanpian_type_url('home/vod/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'mcid'=>"",'mename'=>"",'area'=>"",'earea'=>"",'year'=>$year,'letter'=>"",'order'=>""))}" target="_blank">{$year}</a>
+            {/volist}
+            
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+ {volist name="list_area" id="area" offset="0" length='8'}
+<div class="layout-box clearfix">
+  <div class="box-title">
+     <h3 class="m-0"><i class="icon iconfont text-color">&#xe677;</i>{$area['name']|msubstr=0,2}{$list_name}</h3>
+     <div class="more pull-right"><a href="{:zanpian_type_url('home/vod/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'mcid'=>'','mename'=>"",'area'=>urlencode($area['name']),'earea'=>$area['ename'],'year'=>"",'letter'=>"",'order'=>""))}" class="text-muted" title="更多">更多 <i class="icon iconfont">&#xe65e;</i></a></div>
+  </div>
+  <ul class="clearfix">
+  {vod cid="'.$show['list_id'].'" area="'.$area['name'].'" limit="10" order="vod_addtime desc" key="i"}
+  <li class="col-md-2 col-sm-3 col-xs-4 {gt name="i" value="6"}visible-sm{/gt}"><a class="video-pic loading" data-original="{$zanpian.vod_pic|zanpian_img_url}" href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian.vod_name}" ><span class="player"></span> <span class="score">{$zanpian.vod_gold}</span> <span class="note text-bg-r">{notempty name="zanpian.vod_isend"}{notempty name="zanpian.vod_title"}{$zanpian.vod_title}{else /}{$zanpian.vod_continu}{/notempty}{else /}{$zanpian.vod_title}{/notempty}</span> </a>
+    <div class="title">
+      <h5 class="text-overflow"><a href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian.vod_name}">{$zanpian.vod_name}</a></h5>
+    </div>
+  </li>
+  {/vod}
+  </ul>
+  <div class="box-video-footer visible-xs clearfix"><a href="{:zanpian_type_url('home/vod/type',array('id'=>$show['list_id'],'dir'=>$show['list_dir'],'mcid'=>'','mename'=>"",'area'=>urlencode($area['name']),'earea'=>$area['ename'],'year'=>"",'letter'=>"",'order'=>""))}" class="text-more" title="查看更多">查看更多 <i class="icon iconfont icon-right pull-right"></i></a></div>
+</div>
+
+{/volist}  
+  </div>
+</div>
+{include file="footer" /}
+</body>
+</html>

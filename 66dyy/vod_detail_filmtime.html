@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+{if condition="$show['list_pid'] eq $tpl_id[2]"}
+{php}$tvtitle="播出";{/php}
+<title>{$info['vod_name']}播出时间_{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}更新时间 -{$site_name}</title>
+<meta name="keywords" content="{$info['vod_name']}上映时间,{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}开播时间,{$info['vod_name']}更新时间,{$info['vod_name']}在哪个台播出">
+<meta name="description" content="{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}{$info['vod_year']}年上映由{$vod_director}导演著名电视剧演员{$actor}主演的一部{$vod_mcid|mcat_name=$vod_cid,2}剧,{$info['vod_name']}上映时间、{$info['vod_name']}开播时间以及{$info['vod_name']}在哪个台播出是有{$site_name}为您提供">
+{elseif condition="$show['list_id'] eq $tpl_id[4]"/}
+<title>{$info['vod_name']}播出卫视_{$info['vod_name']}更新时间_{$info['vod_name']}周几播 -{$site_name}</title>
+<meta name="keywords" content="{$info['vod_name']}播出时间,{$info['vod_name']}开播时间,{$info['vod_name']}周几播出,{$info['vod_name']}更新时间,{$info['vod_name']}在哪个台播出">
+<meta name="description" content="{$site_name}为你提供了包括{$info['vod_name']}播出时间、{$info['vod_name']}开播时间以及{$info['vod_name']}更新时间，{$info['vod_name']}将在{$info['vod_diantai']}播出希望你能喜欢">
+{elseif condition="$show['list_id'] eq $tpl_id[3]"/}
+<title>{$info['vod_name']}播出时间_{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}更新时间_{$info['vod_name']}周几更新 -{$site_name}</title>
+<meta name="keywords" content="{$info['vod_name']}播出时间,{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}播出周期,{$info['vod_name']}更新时间">
+<meta name="description" content="{$site_name}为你提供了包括{:getlistname($show['list_pid'],'list_name')}{$info['vod_name']}播出时间、{$info['vod_name']}周几更新以及{$info['vod_name']}播出周期希望你能喜欢">
+{else /}
+{php}$tvtitle="上映";{/php}
+<title>{$info['vod_name']}上映时间,{$info['vod_name']}什么时候上映 -{$site_name}</title>
+<meta name="keywords" content="{$info['vod_name']}什么时候上映,{$info['vod_name']}上映时间">
+<meta name="description" content="{$info['vod_name']}{:getlistname($show['list_pid'],'list_name')}{$info['vod_year']}年上映由{$vod_director}导演著名电影演员{$actor}主演的{$vod_mcid|mcat_name=$vod_cid,2}电影同时我们还提供了{$info['vod_name']}演员表角色剧照预告片花絮等信息希望你能喜欢">
+{/if}
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+{vodtv var="tv_data" tv="'.$info['vod_diantai'].'" name="'.$info['vod_name'].'" aliases="'.$info['vod_aliases'].'" order="tv_hits desc"}{/vodtv}
+{topic var="vod_news" did="'.$info['vod_id'].'" sid="1" tsid="2" limit="1"}{/topic}
+<!--盒子开始--> 
+<div class="container">
+  <div class="row">
+  <!--左侧板块开始--> 
+{include file="vod_detail_nav" /}
+<div class="col-md-9 col-sm-12 box-main-content">
+  <div class="layout-box clearfix mt-0"> 
+{include file="vod_detail_min_info" /}
+<div class="clearfix text-center details-tv">
+<div class="item">
+<h4 class="text-overflow text-center">{notempty name="info['vod_filmtime']"}{$tvtitle}{$info['vod_filmtime']|date='Y年m月d日',###}{else /}{$info['vod_year']}年{/notempty}{notempty name="info['vod_diantai']"}在{$info['vod_diantai']|get_tv_url}等电台{/notempty}敬请关注！</h4>
+</div>
+<div class="details-content text-justify">
+{notempty name="info['vod_tvexp']"}<p>{$info['vod_tvexp']}</p>{/notempty}
+{notempty name="info['vod_tvcont']"}<p>{$info['vod_tvcont']}</p>{/notempty}
+<p>简介：{$info['vod_content']}…</p>
+</div>
+<div class="col-md-12 col-sm-12 box-main-content">
+{notempty name="tv_data"}
+<div class="col-md-12 col-sm-12 box-main-content">
+{volist name="tv_data" id="zanpian"}
+<div class="col-md-1 col-sm-1 col-xs-12 details-tv-title">
+<a title="{$zanpian.tv_name}节目表" href="{:zanpian_read_url('home/tv/read',$zanpian)}"><!--<img class="hidden-xs hidden-sm" src="{$zanpian.tv_pic}" align="absmiddle"/>--><b>{$zanpian.tv_name}</b></a>
+</div>
+<div class="col-md-11 col-sm-11 col-xs-12">
+{volist name="zanpian.week_list" id="week"}
+<div class="col-md-12 col-sm-12 col-xs-12 details-tv-t">
+<div class="col-md-3 col-sm-3 col-xs-3 hidden-xs">
+<em class="date">{$week.date|date='Y年m月d日',###}</em><em class="tvweek hidden-sm">{$week.week}</em>
+</div>
+<div class="col-md-9 col-sm-9 col-xs-12">
+{volist name="week.item" id="item"}
+<div class="col-md-6 col-sm-12 col-xs-12 details-tv-h">
+<em class="time pull-right">{$item.time}</em><em class="name pull-left">{$item.name}</em>
+{notempty name="item.live"}<span class="tv-live pull-left hidden-xs">直播中<em class="tv-live-l"></em></span>{/notempty}
+</div>
+{/volist}
+</div>
+</div>
+{/volist}
+</div>
+{/volist}
+</div>
+{/notempty}  
+</div>   
+</div> 
+</div>
+{include file="vod_detail_tab" /}
+</div>
+<div class="col-md-3 col-sm-12 box-main-side hidden-sm hidden-xs">
+<div class="layout-box clearfix mt-0">
+<div class="col-md-12 p-0">
+<div class="col-md-6 col-sm-12 col-xs-12 p-0">
+<a class="video-pic" href="{:zanpian_read_url('home/vod/read',$info)}" title="{$info['vod_name']}"  style="background: url({$info['vod_pic']|zanpian_img_url}) no-repeat top center;background-size:cover;"><span class="note text-bg-r">{eq name="info['vod_isend']" value="1"}{$info['vod_title']}{else /}{$info['vod_continu']}{/eq}</span></a>
+</div>
+<div class="col-md-6 col-sm-12 col-xs-12" style=" padding-top:0px; padding-right:0px;">
+<div class="col-md-12 p-0 text-overflow"><strong>{$info['vod_name']}</strong></div>
+<div class="col-md-12 pg-0 text-overflow">{$info['vod_mcid']|get_mcat_url=$info.vod_cid,5}</div>
+<div class="col-md-12 p-0 text-overflow">{$info['vod_actor']}</div>
+<div class="col-md-12 pg-0 text-overflow">{$info['vod_year']|default='未录入'} / {$info.vod_area|default='其他'}</div>
+<div class="col-md-12 p-0 text-overflow">{eq name="info['vod_isend']" value="1"}{$info['vod_title']}{else /}{$info['vod_continu']}{/eq}</div>
+<div class="col-md-12 pg-0 text-overflow"><span>评分：</span><span class="hits text-color" style="font-size:20px"><em>{$info['vod_gold']}</em></span></div>
+</div>
+</div>
+</div>
+{include file="vod_detail_right" /}     
+</div>
+</div>
+</div>
+{:gethits($info['vod_id'],$show['list_sid'])}
+<!--盒子结束--> 
+{include file="footer" /}
+</body>
+</html>

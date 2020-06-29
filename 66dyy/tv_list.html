@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="show['list_title']"}{$show['list_title']}{else/}{$show['list_name']}最新节目单_{$show['list_name']}节目表_{$show['list_name']}一周节目 {gt name="param['p']" value="1"}第{$param['p']}页{/gt} - {$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="show['list_keywords']"}{$show['list_keywords']}{else/}{$show['list_name']}最新节目单,{$show['list_name']}节目表,{$show['list_name']}一周节目{/notempty}">
+<meta name="description" content="{notempty name="show['list_description']"}{$show['list_description']}{else/}{$show['list_name']}最新节目单,{$show['list_name']}节目表,{$show['list_name']}一周节目{/notempty}">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<div class="container">
+  <div class="row">  
+{tv var="tv_list" cid="'.$show['list_id'].'" field="tv_id,tv_name,tv_cid,tv_letters,tv_pic,tv_data,tv_addtime" limit="20" order="tv_addtime desc" page="true"}{/tv}
+<div class="tv_list_box">
+    <div class="box-title">
+      <h3 class="m-0">{$show['list_name']}</h3>
+<div class="more pull-right">共<span class="text-color">“{$tv_list->total()}”</span>个电台节目</div>
+    </div>
+    <div class="layout-box clearfix">
+    <div class="box-title-nav pull-left">
+    <ul class="clearfix">
+    <li><a class="text-overflow" href="{:zanpian_show_url($show['list_pid'])}">全部{:getlistname($show['list_pid'],'list_name')}</a></li>
+   {list pid="'.$show['list_pid'].'" order="list asc"}
+    <li><a class="text-overflow {eq name="zanpian.list_id" value="$show['list_id']"}active{/eq}" href="{:zanpian_show_url($zanpian)}">{$zanpian.list_name}</a></li>
+{/list}
+    </ul>
+    </div>    
+    </div>    
+     {foreach name="tv_list" id="zanpian"}
+    <div class="col-md-3 col-sm-4 col-xs-12 clearfix  pl-0">
+    <div class="layout-box clearfix">
+        <div class="box-switch-tabs active clearfix p-0 m-0">
+        <ul class="nav nav-tabs">
+          <li><a href="{:zanpian_read_url('home/tv/read',$zanpian)}">{$zanpian.tv_name}</a></li>
+          <div class="tv-more pull-right"><a href="{:zanpian_read_url('home/tv/read',$zanpian)}" class="text-muted" title="详细">详细 <i class="icon iconfont">&#xe65e;</i></a></div>
+        </ul>
+        </div>
+        <div class="tv_txt_list">
+      <ul class="clearfix">
+      {week name="'.$zanpian['tv_name'].'" data="'.$zanpian['tv_data'].'" id="list"}
+      {php}$vod=get_vod_url($list['keywords'],1,$zanpian['tv_name']);{/php}
+      <li><span class="b"></span><i>{$list.time}</i>{notempty name="vod"}<a href="{:zanpian_read_url('home/vod/read',$vod)}" target="_blank">{$list.name|msubstr=0,14}</a>{else/}{$list.name|msubstr=0,14}{/notempty}{notempty name="list.live"}<span class="tv-live pull-left hidden-xs">直播中<em class="tv-live-l"></em></span>{/notempty}</li>
+      {/week} 
+      </ul>  
+        
+    </div>
+    </div>
+    </div>
+   {/foreach} 
+  </div>
+<div class="box-page clearfix" id="long-page"><ul>{$tv_list->render()}</ul></div></div>
+</div>
+{include file="footer" /}
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{$info['star_name']}个人资料主要成就_演艺经历介绍-{$site_name}</title>
+<meta name="keywords" content="{$info['star_name']}个人资料,{$info['star_name']}主要成就,{$info['star_name']}演艺经历">
+<meta name="description" content="{$list_name}影视大全为您收集了{$info['star_name']}个人资料、早期演艺经历、主要成就介绍等{$info['star_name']}是知名的电影/电视剧明星，{$info['star_name']}主演过多部出色的影视作品得到了广大影视观众的认可与好评。在线观看{$info['star_name']}的影视代表作品尽在{$sitename}影视大全。"> 
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+{star var="star_hz" star="'.$info['star_name'].'" guan="'.$info['star_xi'].'" limit="10" order="star_hits desc"}{/star}
+{topic var="star_news" did="'.$info['star_id'].'" sid="3" tsid="2" limit="1"}{/topic}
+{vod var="star_dy" actor="'.$info['star_name'].'" cid="1" limit="1"}{/vod}
+{vod var="star_ds" actor="'.$info['star_name'].'" cid="2" limit="1"}{/vod}
+{vod var="star_zy" actor="'.$info['star_name'].'" cid="4" limit="1"}{/vod}
+{role var="star_role" star="'.$info['star_name'].'" limit="1"}{/role}
+{include file="star_detail_top" /}    
+<div class="container">
+<div class="row"> 
+<div class="clearfix"></div> 
+{notempty name="info['star_data']"}
+  <!--明星介绍开始-->   
+<div class="layout-box clearfix">
+<div class="col-md-12">
+<div class="details-story">
+{volist name="info['star_data']" id="star" key="key"}
+<h4 class="text-overflow text-left">{$star.title}</h4>
+<div class="details-content text-justify">
+<p>{$star.info}</p>
+</div>
+{/volist}
+</div>
+</div>
+</div>
+</div>
+ <!--明星介绍结束--> 
+{/notempty}
+</div>
+</div>
+{:gethits($info['star_id'],$show['list_sid'])}
+<!--盒子结束--> 
+{include file="footer" /}
+</body>
+</html>

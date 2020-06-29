@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$vod_name}{$play_jiname}{$play_title}在线播放</title>
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no" name="viewport">
+<link rel='stylesheet' type='text/css' href='{$public_dir}admin/playblank/link.css' />
+<script type="text/javascript" src="{$public_dir}admin/playblank/jquery-1.7.2.min.js"></script>
+<script src="{$public_dir}admin/playblank/playclass.js" type="text/javascript"></script>
+<script>var Root='{$root}' ;var Sid='{$list_sid}' ;var url = "{$play_path}" ;var playname = "{$play_jiname}";</script>
+<script type="text/javascript" src="{$public_dir}admin/playblank/play.js"></script>
+<body>	
+	<div class="box">
+		<div class="boxbg">
+          <div class="tishi">
+            <input id="notip" type="checkbox" value="1" _clicklog="nt:1" href="#"/><label for="notip">不再提示</label>
+            </div>
+			<div class="container">
+				<div class="sure">
+					<div class="task_step">
+						<div class="attention">
+						<p>正在带你穿越到：《{$vod_name}》{$play_jiname}{$play_title}播放页面</p>
+						<p class="loading"><span class="loading"></span></p>
+						</div>
+					</div>
+				</div> 
+				<div class="blank"></div>
+				<div class="button">
+					<a rel="nofollow" title="立即跳转" class="jump">立即跳转</a>
+					<a rel="nofollow" href="javascript:void(0);" title="取消跳转" class="clearjumb">取消跳转</a>
+					<a href="{$vod_readurl}" title="返回前页" class="return">返回前页</a>
+				</div>			
+			</div>
+
+               <div class="tznav">
+               <div class="icol">
+<a href="{:getlistname($tpl_id[1],'list_url')}" target="_self"><i class="iconfont btn one">&#xe602;</i><span>{:getlistname($tpl_id[1],'list_name')}</span></a>
+<a href="{:getlistname($tpl_id[2],'list_url')}"  target="_self"><i class="iconfont btn tow">&#xe607;</i><span>{:getlistname($tpl_id[1],'list_name')}</span></a>
+<a href="{:getlistname($tpl_id[3],'list_url')}"  target="_self"><i class="iconfont btn  three">&#xe606;</i><span>{:getlistname($tpl_id[3],'list_name')}</span></a>
+<a href="{:getlistname($tpl_id[4],'list_url')}" target="_self"><i class="iconfont btn four">&#xe605;</i><span>{:getlistname($tpl_id[4],'list_name')}</span></a>
+<a href="{:getlistname($tpl_id[8],'list_url')}" target="_self" rel="nofollow" ><i class="iconfont btn fives">&#xe601;</i><span>{:getlistname($tpl_id[8],'list_name')}</span></a>
+<a href="{:getlistname($tpl_id[7],'list_url')}"  target="_self"><i class="iconfont btn seven">&#xe608;</i><span>{:getlistname($tpl_id[7],'list_name')}</span></a>
+<a href="{:getlistname($tpl_id[10],'list_url')}"  target="_self"><i class="iconfont btn eight">&#xe60a;</i><span>{:getlistname($tpl_id[10],'list_name')}</span></a>
+<a href="{:getlistname($tpl_id[12],'list_url')}" target="_self"><i class="iconfont btn four">&#xe609;</i><span>{:getlistname($tpl_id[12],'list_name')}</span></a>
+<a href="{:getlistname($tpl_id[16],'list_url')}" target="_self" rel="nofollow" ><i class="iconfont btn fives">&#xe604;</i><span>{:getlistname($tpl_id[16],'list_name')}</span></a> 
+</div>
+   </div> 
+		</div>
+	</div>
+<script>
+if(PlayHistoryObj){
+	var vod_id = "{$vod_id}" ;
+	    var vod_pid = "{$play_pid}" ;
+	    var vod_sid = "{$play_sid}" ;
+	  	var url_name = "{$play_jiname}" ;
+	var json = {
+		'vod_id' : vod_id ,
+		'vod_pid': vod_pid,
+		'vod_sid': vod_sid,
+		'vod_name' : "{$vod_name}",
+		'url_name' : "{$play_jiname}",
+		'vod_maxnum' : "{$play_count}",
+	} ;
+	PlayHistoryObj.addPlayHistory(json,"{$vod_readurl}",window.location.href);
+}
+</script> 
+{$vod_hits_insert}
+</body>
+</html>

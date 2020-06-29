@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>{notempty name="show.list_title"}{$show.list_title}{else/}最新更新的100个电视剧、电影、动漫、综艺节目 - {$site_name}{/notempty}</title>
+<meta name="keywords" content="{notempty name="show.list_keywords"}{$show.list_keywords}{else/}最新{$show.list_name},{$site_keywords}{/notempty}">
+<meta name="description" content="{notempty name="show.list_description"}{$show.list_description}{else/}{$site_description}{/notempty}">
+{include file="include" /}
+</head>
+<body>
+{include file="header" /}
+<div class="container">
+  <div class="row">
+     <!--最近更新模块开始-->
+    <div class="layout-box clearfix">
+    <div class="box-title">
+    <h3 class="m-0"><i class="icon iconfont text-color">&#xe62b;</i>最近更新</h3>
+    <div class="more pull-right"><span class="text-muted pull-right">最近<span class="text-color">“100”</span>个视频</div>
+    </div>
+    <ul class="clearfix">
+            {vod limit="6" order="vod_addtime desc" key="i"}
+            <li class="col-md-2 col-sm-4 col-xs-4">
+            <a class="video-pic loading" data-original="{$zanpian.vod_pic|zanpian_img_url}" href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian.vod_name}" >
+            <span class="tips red">{:getlistname($zanpian.vod_cid,'list_name')}</span>
+            <span class="player"></span>
+            <span class="num">{$i}</span>
+            <span class="note text-bg-r">{notempty name="zanpian.vod_continu"}{notempty name="zanpian.vod_title"}{$zanpian.vod_title}{else /}{$zanpian.vod_continu}{/notempty}{else /}{$zanpian.vod_title}{/notempty}</span>
+            </a>
+            <div class="title"><h5 class="text-overflow"><a href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian.vod_name}">{$zanpian.vod_name}</a></h5></div>
+            </li>
+            {/vod}
+            </ul>
+   <div class="box-video-text-list clearfix">
+            <ul>
+            {vod start="6" limit="94" order="vod_addtime desc" key="i"}
+              <li class="list2 text-overflow"><a class="pull-left" href="{:zanpian_read_url('home/vod/read',$zanpian)}" title="{$zanpian.vod_name}"><em class="num {lt name="i" value="5"}active{/lt}">{$i+6}</em>{$zanpian.vod_name}&nbsp;/&nbsp;{$zanpian.vod_title}</a><span class="time hidden-xs">{$zanpian.vod_addtime|time_today='color','#f90'}</span>
+              </li>
+           {/vod}
+           
+            </ul>
+        </div>
+      </div>  
+  <!--最近更新结束-->         
+  
+  </div>
+</div>
+{include file="footer" /}
+</body>
+</html>
