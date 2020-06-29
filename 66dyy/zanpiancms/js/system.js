@@ -39,9 +39,9 @@ var zanpian = {
 		$("<link>").attr({
 			rel: "stylesheet",
 			type: "text/css",
-			href: cms.public + "zanpiancms/showfloatdiv/css/showfloatdiv.css"
+			href: "https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@master/66dyy/zanpiancms/showfloatdiv/css/showfloatdiv.css"
 		}).appendTo("head");
-		$.getScript(cms.public + "zanpiancms/showfloatdiv/js/showfloatdiv.js", function() {});
+		$.getScript("https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@master/66dyy/zanpiancms/showfloatdiv/js/showfloatdiv.js", function() {});
 	},
 	//选项卡切换
 	'tab': function() {
@@ -462,7 +462,7 @@ var zanpian = {
 			cache: true
 		});
 		if ($("#downlist").length) {
-			$.getScript(cms.public + "zanpiancms/js/down.js");
+			$.getScript("https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@master/66dyy/zanpiancms/js/down.js");
 		}
 	},
 },
@@ -1889,7 +1889,7 @@ var zanpian = {
 			$.ajaxSetup({
 				cache: true
 			});
-			$.getScript(cms.public+"zanpiancms/js/jquery.autocomplete.min.js", function(response, status) {
+			$.getScript("https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@master/66dyy/zanpiancms/js/jquery.autocomplete.min.js", function(response, status) {
 				$ajax_url = cms.root+'index.php?s=/home/search/vod';
 				$('.zanpian_wd').autocomplete({
 					serviceUrl : $ajax_url,
@@ -1921,7 +1921,7 @@ var zanpian = {
 	    $.ajaxSetup({
 			cache: true
 		});
-		$.getScript(cms.public+"zanpiancms/js/swiper.min.js", function(){	
+		$.getScript("https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@master/66dyy/zanpiancms/js/swiper.min.js", function(){	
 var swiper=new Swiper('.box-slide',{pagination:'.swiper-pagination',lazyLoading:true,preventClicks:true,paginationClickable:true,autoplayDisableOnInteraction:false,autoplay:3000,loop:true,nextButton:'.swiper-button-next',prevButton:'.swiper-button-prev',});var swiper=new Swiper('.details-slide',{pagination:'.swiper-pagination',autoHeight:true,loop:true,nextButton:'.details-slide-next',prevButton:'.details-slide-pre',paginationType:'fraction',keyboardControl:true,lazyLoading:true,lazyLoadingInPrevNext:true,lazyLoadingInPrevNextAmount:1,lazyLoadingOnTransitionStart:true,});var swiper=new Swiper('.news-switch-3',{lazyLoading:true,slidesPerView:3,spaceBetween:0,nextButton:'.swiper-button-next',prevButton:'.swiper-button-prev',breakpoints:{1200:{slidesPerView:3,spaceBetween:0},992:{slidesPerView:2,spaceBetween:0},767:{slidesPerView:1,spaceBetween:0}}});var swiper=new Swiper('.news-switch-4',{lazyLoading:true,slidesPerView:4,spaceBetween:0,nextButton:'.swiper-button-next',prevButton:'.swiper-button-prev',breakpoints:{1200:{slidesPerView:4,spaceBetween:0},992:{slidesPerView:3,spaceBetween:0},767:{slidesPerView:2,spaceBetween:0}}});var swiper=new Swiper('.news-switch-5',{lazyLoading:true,slidesPerView:5,spaceBetween:0,nextButton:'.swiper-button-next',prevButton:'.swiper-button-prev',breakpoints:{1200:{slidesPerView:4,spaceBetween:0},992:{slidesPerView:3,spaceBetween:0},767:{slidesPerView:2,spaceBetween:0}}});var swiper=new Swiper('.vod-swiper-4',{lazyLoading:true,slidesPerView:4,spaceBetween:0,nextButton:'.swiper-button-next',prevButton:'.swiper-button-prev',breakpoints:{1200:{slidesPerView:4,spaceBetween:0},767:{slidesPerView:3,spaceBetween:0}}});var swiper=new Swiper('.vod-swiper-5',{lazyLoading:true,slidesPerView:5,spaceBetween:0,nextButton:'.swiper-button-next',prevButton:'.swiper-button-prev',breakpoints:{1200:{slidesPerView:4,spaceBetween:0},767:{slidesPerView:3,spaceBetween:0}}});var swiper=new Swiper('.vod-swiper-6',{lazyLoading:true,slidesPerView:6,spaceBetween:0,nextButton:'.swiper-button-next',prevButton:'.swiper-button-prev',breakpoints:{1200:{slidesPerView:5,spaceBetween:0},992:{slidesPerView:4,spaceBetween:0},768:{slidesPerView:3,spaceBetween:0}}});		
 	});
 	},
@@ -1930,7 +1930,7 @@ var swiper=new Swiper('.box-slide',{pagination:'.swiper-pagination',lazyLoading:
 		$.ajaxSetup({
 			cache: true
 		});
-		$.getScript(cms.public+"zanpiancms/js/jquery.lazyload.min.js", function(response,status){
+		$.getScript("https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@master/66dyy/zanpiancms/js/jquery.lazyload.min.js", function(response,status){
 			$(".loading").lazyload({
 				effect : "fadeIn",
 				failurelimit: 15
@@ -1983,14 +1983,14 @@ var swiper=new Swiper('.box-slide',{pagination:'.swiper-pagination',lazyLoading:
 'language':{//简繁转换
 	's2t':function(){
 		if(zanpian.browser.language=='zh-hk' || zanpian.browser.language=='zh-tw'){
-			$.getScript(cms.public + "zanpiancms/js/s2t.min.js", function(data, status, jqxhr) {
+			$.getScript("https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@master/66dyy/zanpiancms/js/s2t.min.js", function(data, status, jqxhr) {
 				$(document.body).s2t();//$.s2t(data);
 			});
 		}
 	},
 	't2s':function(){
 		if(zanpian.browser.language=='zh-cn'){
-			$.getScript(cms.public + "zanpiancms/js/s2t.min.js", function(data, status, jqxhr) {
+			$.getScript("https://cdn.jsdelivr.net/gh/TADSADASDASDASD/sources@master/66dyy/zanpiancms/js/s2t.min.js", function(data, status, jqxhr) {
 				$(document.body).t2s();//$.s2t(data);
 			});
 		}
