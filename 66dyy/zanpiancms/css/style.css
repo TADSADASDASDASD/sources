@@ -16,7 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 html,body{overflow-x:hidden;}
-body{font-family:"Microsoft YaHei";padding-top: 60px;}
+body{font-family:"Microsoft YaHei";}
 a:focus{outline:none;}
 a:focus,a:hover,a:link{text-decoration:none;}
 li,ol,ul{margin:0;padding:0;list-style:none}
@@ -48,7 +48,7 @@ body.modal-open{ padding:0px;}
 .box-main-side .side:last-child{border-bottom:0}
 .table>tbody>tr>td,.table>tbody>tr>th,.table>tfoot>tr>td,.table>tfoot>tr>th,.table>thead>tr>td,.table>thead>tr>th{padding:10px 0}
 /*导航栏*/
-.navbar{border-radius: 0px; border:none;margin-bottom:10px;position: absolute;top: 0;z-index: 999;width: 100%;}
+.navbar{border-radius: 0px; border:none;margin-bottom:10px;position: static;top: 0;z-index: 999;width: 100%;}
 .navbar-header .navbar-brand{font-size:1.1em;}
 .nav-search{float:left;padding: 10px 0 0;width:290px; position:relative;margin-left:10px}
 .nav-search .btn-search{display: block;position: absolute;top: 10px;right: 0;width: 35px;height: 35px;line-height: 35px;text-align: center;padding:0px;background:none;}
