@@ -1,0 +1,55 @@
+﻿/* 
+ * 作者: 小菜
+ * 官网: http://www.xiaocaishuo.com
+ * Q Q:840232032
+ */
+
+.gopage{margin:0;padding:0;background:#faf9f8 url(../images/bg.png);color:#666;font:normal 12px/1.8em Verdana,Arial,sans-serif;-webkit-text-size-adjust:none;}
+.gopage h1,.gopage h2,.gopage p{margin:0;padding:0;}
+.gopage a{color:#d32e4c;text-decoration:none;}
+.gopage a:hover{text-decoration:underline;}
+#card{overflow:hidden;width:500px;margin:150px auto 15px;padding:30px;background:#fff;box-shadow:0 1px 5px rgba(0,0,0,0.3);-moz-box-shadow:0 1px 5px rgba(0,0,0,0.3);-webkit-box-shadow:0 1px 5px rgba(0,0,0,0.3);}
+#main{padding:0 10px 25px;background:url(../images/go-load.gif) 98% 0 no-repeat;}
+#main h1{margin:0 0 25px;color:#d32e4c;font:24px/26px '微软雅黑','华文细黑',Verdana,Geneva,sans-serif;}
+#main p{color:#666;font-size:14px;word-wrap:break-word;word-break:break-all;}
+#warm{padding:15px 10px 0;border-top:1px dashed #ccc;}
+#warm h2{margin:10px 0;color:#666;font-size:16px;}
+#warm p{color:#999;font-size:13px;line-height:140%;}
+#copy{margin:0 0 100px;color:#ccc;font:12px/20px 'Lucida Sans Unicode','Lucida Grande',Verdana,Geneva,sans-serif;text-align:center;}
+#copy a{color:#ccc;}
+
+.tao_box_1{ margin:10px auto}
+table.tao_box_1,table.tao_box_1 tr,table.tao_box_1 td{border:0;margin-left:0; margin-right:0;padding:0}
+.tao_box_1 .tao_item{position:relative;display:block;width:500px;padding:20px;background:#f7f7f7; text-decoration:none;text-decoration:none;*cursor:pointer;clear:none!important;*zoom:1;font:16px/1.5 "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB"; margin:0 auto}
+.tao_box_1 .tao_item:after{content:"";clear:both;display:block!important;height:0}
+.tao_box_1 .tao_item:visited .item-title{color:#818181}
+.tao_box_1 .tao_item:hover{background:#efefef; text-decoration:none}
+.tao_box_1 .tao_item ins {text-decoration: none;}
+.tao_box_1 .tao_item .item-pic{float:left;height:110px;width:110px;margin-right:20px;overflow:hidden}
+.tao_box_1 .tao_item .item-pic img{ width:100%; height:100%; margin:0; padding:0}
+.tao_box_1 .tao_item .item-info{position:relative;height:110px;overflow:hidden;*zoom:1}
+.tao_box_1 .tao_item .item-title {line-height:1.5;color:#06a;font-size: 16px; text-decoration:none;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tao_box_1 a:link,.tao_box_1 a:visited {color:#06a;}
+.tao_box_1 .tao_item .item-price{position:absolute;left:0;bottom:5px;font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",arial}
+.tao_box_1 .tao_item .price-new{color:#f50}
+.tao_box_1 .tao_item .price-new strong{font-size:24px;font-weight:400}
+.tao_box_1 .tao_item .price-old{margin-left:10px;color:#999}
+.tao_box_1 .tao_item .item-btn{position:absolute;right:0;bottom:5px;height:30px;width:100px;line-height:30px;border:1px solid #da0d15;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;color:#da0d15;text-align:center}
+
+
+table.tao_box_2{ margin:10px auto;}
+table.tao_box_2,table.tao_box_2 tr,table.tao_box_2 td{border:0; margin-left:0; margin-right:0; padding:0}
+.tao_box_2 .tao_item{position:relative;display:block;width:95%; border:1px dashed #eee;padding:10px;background:#f7f7f7; text-decoration:none;text-decoration:none;*cursor:pointer;clear:none!important;*zoom:1;font:16px/1.5 "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB"}
+.tao_box_2 .tao_item:after{content:"";clear:both;display:block!important;height:0}
+.tao_box_2 .tao_item:visited .item-title{color:#818181}
+.tao_box_2 .tao_item:hover{background:#efefef; text-decoration:none}
+.tao_box_2 .tao_item ins {text-decoration: none;}
+.tao_box_2 .tao_item .item-pic{float:left;width:30%;margin-right:2%;overflow:hidden}
+.tao_box_2 .tao_item .item-pic img{ width:100%; height:auto; margin:0; padding:0}
+.tao_box_2 .tao_item .item-info{position:relative; height:100px;overflow:hidden;*zoom:1}
+.tao_box_2 a.tao_item .item-title,.tao_box_2 a.tao_item .item-title:link,.tao_box_2 a.tao_item .item-title:visited {line-height:1.5;color:#06a;font-size: 14px; text-decoration:none;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tao_box_2 .tao_item .item-price{position:absolute;left:0;bottom:5px;font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",arial}
+.tao_box_2 .tao_item .price-new{color:#f50}
+.tao_box_2 .tao_item .price-new strong{font-size:16px;font-weight:400}
+.tao_box_2 .tao_item .price-old{margin-left:5px;color:#999}
+.tao_box_2 .tao_item .item-btn{position:absolute;right:0;bottom:5px;height:30px;width:80px;line-height:30px;border:1px solid #da0d15;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;color:#da0d15;text-align:center}
