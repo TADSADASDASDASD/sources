@@ -44,7 +44,7 @@ ul.msg li ul.msg{margin-top:12px;padding:10px;border:1px solid #ededed;border-ra
 .top {line-height: 35px; height:35px; border-bottom:1px solid #ddd; background-color:#f5f5f5;}
 
 .head {padding:10px 0; background-color:#fff;}
-.logo a{ display:block; width:200px; height:60px;background-repeat: no-repeat; background-image: -webkit-image-set(url(/skin/default/images/logo.png) 1x,url(/skin/default/images/logo2.png) 2x);}
+.logo a{ display:block; width:200px; height:60px;background-repeat: no-repeat; background-image: -webkit-image-set(url(/gh/TADSADASDASDASD/sources@latest/ge8/skin/default/images/logo.png) 1x,url(/gh/TADSADASDASDASD/sources@latest/ge8/skin/default/images/logo2.png) 2x);}
 .sj-ss{position:absolute;top:45px;left:0;width:100%;padding:2%;background-color:#fff;}
 .ss form{width:380px;margin-left:100px; margin-top:10px;}
 .ss #edtSearch,.sous #edtSearch,.sj-ss #edtSearch{float: left;height: 38px; line-height:38px; color:#777777;width: 82%; border:1px solid #ddd;padding-left:2%;background-color:#ffffff;border-radius: 3px 0px 0px 3px;}
